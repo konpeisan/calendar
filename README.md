@@ -22,3 +22,54 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# テーブル設計
+
+## users テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| username           | string | null: false |
+| encrypted_password | string | null: false |
+
+### Association
+- has_many :budgets
+- has_many :halls
+- has_many :types
+
+## budgets テーブル
+
+| Column   | Type    | Options     |
+| -------- | ------- | ----------- |
+| today    | string  | null: false |
+| price    | string  | null: false |
+| recovery | string  | null: false |
+| yen_id   | integer | null: false |
+| memo     | text    |             |
+
+### Association
+- belongs_to :user
+- has_many :halls
+- has_many :types
+
+## halls テーブル
+
+| Column       | Type       | Options    |
+| ------------ | ---------- | ---------- |
+| hall_name_id | integer    |            |
+
+### Association
+- belongs_to :user
+- belongs_to :budget
+
+## types テーブル
+
+| Column       | Type       | Options   |
+| ------------ | ---------- | --------- |
+| type_name_id | integer    |           |
+| pachinko     | integer    |           |
+| slot         | integer    |           |
+
+### Association
+- belongs_to :user
+- belongs_to :budget
