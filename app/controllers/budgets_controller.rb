@@ -17,9 +17,6 @@ class BudgetsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
     @budget = Budget.find(params[:id])
   end
