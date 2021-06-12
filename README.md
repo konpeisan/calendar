@@ -39,13 +39,13 @@ Things you may want to cover:
 
 ## budgets テーブル
 
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| today    | string  | null: false |
-| price    | string  | null: false |
-| recovery | string  | null: false |
-| yen_id   | integer | null: false |
-| memo     | text    |             |
+| Column      | Type     | Options     |
+| ----------- | -------- | ----------- |
+| start_time  | datetime |             |
+| price       | string   | null: false |
+| recovery    | string   | null: false |
+| yen_id      | integer  | null: false |
+| memo        | text     |             |
 
 ### Association
 - belongs_to :user
