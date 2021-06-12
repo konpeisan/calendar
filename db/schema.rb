@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 2021_06_12_071034) do
   end
 
   create_table "budgets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "start_time"
+    t.date "start_time"
     t.string "price", null: false
     t.string "recovery", null: false
     t.integer "yen_id", null: false
-    t.string "sum"
+    t.string "total"
     t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
