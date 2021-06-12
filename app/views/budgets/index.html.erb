@@ -1,5 +1,9 @@
 <%= render "header" %>
 
-<%= month_calendar budgets: @budgets do |date, budget| %>
-<%= date.day %>
+<%= month_calendar budgets: @budgets do |date, budgets| %>
+<%= link_to date.day, new_budget_path %>
+
+<% budgets.each do |budget| %>
+<div><%= budget.sum %></div>
+<% end %>
 <% end %>

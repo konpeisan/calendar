@@ -1,0 +1,31 @@
+<h1>テスト</h1>
+
+<%= form_with(model: @budget, local: true) do |form| %>
+
+  <div class="time">
+    <%= form.label :start_time %>
+    <%= form.date_select :start_time %>
+  </div>
+
+    <div class="price">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+    <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+  </div>
+
+  <div class="recovery">
+    <%= form.label :recobery %>
+    <%= form.text_field :recovery %>
+    <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+  </div>
+
+  <div class="memo">
+    <%= form.label :memo %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>
