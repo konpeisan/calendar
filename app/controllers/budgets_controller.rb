@@ -8,8 +8,28 @@ class BudgetsController < ApplicationController
   end
 
   def create
-    Budget.create(budget_params)
-    redirect_to root_path
+    @budget = Budget.create(budget_params)
+    if @budget.save
+      @budget.sum = @budget.price - @budget.recovery
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def show
+  end
+
+  def edit
+    @budget = Budget.find(params[:id])
+  end
+
+  def update
+    @budget = Budget.find(params[:id])
+    @budget.update(budget_params)
+  end
+
+  def destroy
   end
 
   private

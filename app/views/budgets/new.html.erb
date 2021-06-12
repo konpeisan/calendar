@@ -19,6 +19,9 @@
     <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
   </div>
 
+  <p>今日のハイライト画像</p>
+  <%= form.file_field :image %>
+
   <div class="memo">
     <%= form.label :memo %>
     <%= form.text_area :memo %>
