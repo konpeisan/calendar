@@ -9,14 +9,21 @@
 
     <div class="price">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, id: "price1" %>
     <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
   </div>
 
   <div class="recovery">
     <%= form.label :recobery %>
-    <%= form.text_field :recovery %>
+    <%= form.text_field :recovery, id: "price2" %>
     <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+  </div>
+
+  <div class="total">
+    <span>本日の収支</span>
+    <span>
+      <span id="total" ></span>円
+    </span>
   </div>
 
   <p>今日のハイライト画像</p>

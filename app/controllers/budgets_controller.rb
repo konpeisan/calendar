@@ -9,8 +9,8 @@ class BudgetsController < ApplicationController
 
   def create
     @budget = Budget.create(budget_params)
+    @budget.sum = @budget.recovery.to_i - @budget.price.to_i
     if @budget.save
-      @budget.sum = @budget.price - @budget.recovery
       redirect_to root_path
     else
       render :new
