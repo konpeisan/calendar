@@ -5,12 +5,12 @@ window.addEventListener("load",function(){
     const inputValue = priceInput.value
     const domValue = addTaxDom.value
     const total = document.getElementById("total")
-    total.innerHTML = Math.floor(domValue - inputValue)
+    total.innerHTML = Math.floor(domValue - inputValue).toLocaleString()
   })
   addTaxDom.addEventListener("input", () => {
     const inputValue = priceInput.value
     const domValue = addTaxDom.value
     const total = document.getElementById("total")
-    total.innerHTML = Math.floor(domValue - inputValue)
+    total.innerHTML = Math.floor(domValue - inputValue).toLocaleString()
   })
 })
