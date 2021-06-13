@@ -11,7 +11,7 @@ class BudgetsController < ApplicationController
     @budget = Budget.create(budget_params)
     @budget.total = @budget.recovery.to_i - @budget.price.to_i
     if @budget.save
-      redirect_to budgets_path
+      redirect_to root_path
     else
       render :new
     end
