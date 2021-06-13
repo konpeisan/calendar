@@ -1,41 +1,57 @@
-<h1>結果作成</h1>
+<div class="new">
+<h1 class="heading-name">結果作成</h1>
 
+<div class="contents">
 <%= form_with(model: @budget, local: true) do |form| %>
 
-  <div class="time">
+  <div class="content">
     <%= form.label :start_time %>
+    <div class="left-content">
     <%= form.date_select :start_time %>
+    </div>
   </div>
 
-    <div class="price">
+  <div class="content">
     <%= form.label :price %>
+    <div class="left-content">
     <%= form.text_field :price, id: "price1" %>
     <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    </div>
   </div>
 
-  <div class="recovery">
+  <div class="content">
     <%= form.label :recobery %>
+    <div class="left-content">
     <%= form.text_field :recovery, id: "price2" %>
     <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    </div>
   </div>
 
-  <div class="total">
+  <div class="content">
     <span>本日の収支</span>
-    <span>
-      <span id="total" ></span>円
-    </span>
+      <div class="price-input">
+      <span style="color:white" id="total" ></span>円
+      </div>
   </div>
 
-  <p>今日のハイライト画像</p>
-  <%= form.file_field :image %>
+  <p class="content">今日のハイライト画像</p>
+  <div class="content">
+    <%= form.file_field :image %>
+  </div>
 
-  <div class="memo">
+  <div class="content">
     <%= form.label :memo %>
-    <%= form.text_area :memo %>
+    <div class="left-content">
+    <%= form.text_area :memo, class: "memo" %>
+    </div>
   </div>
 
-  <div class="submit">
-    <%= form.submit %>
+  <div class="content">
+  <div class="btn-content">
+    <%= form.submit "登録する", class:"btn" %>
+  </div>
   </div>
 
 <% end %>
+</div>
+</div>
