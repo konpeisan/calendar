@@ -23,7 +23,11 @@ class BudgetsController < ApplicationController
 
   def update
     @budget = Budget.find(params[:id])
-    @budget.update(budget_params)
+    if @budget.update(budget_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
