@@ -4,7 +4,7 @@
 <%= link_to date.day, new_budget_path(date) %>
 
 <% budgets.each do |budget| %>
-<div><%= budget.total %></div>
+<div><%= link_to budget.total, edit_budget_path(budget.id) %></div>
 <% end %>
 <% end %>
 

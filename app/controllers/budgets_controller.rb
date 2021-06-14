@@ -19,6 +19,7 @@ class BudgetsController < ApplicationController
 
   def edit
     @budget = Budget.find(params[:id])
+    @day_params = params[:format]
   end
 
   def update

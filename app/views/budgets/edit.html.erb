@@ -1,0 +1,57 @@
+<div class="new">
+<h1 class="heading-name">結果作成</h1>
+
+<div class="contents">
+<%= form_with(model: @budget, local: true) do |form| %>
+
+  <div class="content">
+    <%= form.label :start_time %>
+    <div class="left-content">
+    <%= form.date_select :start_time %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= form.label :price %>
+    <div class="left-content">
+    <%= form.text_field :price, id: "price1" %>
+    <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= form.label :recobery %>
+    <div class="left-content">
+    <%= form.text_field :recovery, id: "price2" %>
+    <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    </div>
+  </div>
+
+  <div class="content">
+    <span>本日の収支</span>
+      <div class="price-input">
+      <span style="color:white" id="total" ></span>円
+      </div>
+  </div>
+
+  <p class="content">今日のハイライト画像</p>
+  <div class="content">
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="content">
+    <%= form.label :memo %>
+    <div class="left-content">
+    <%= form.text_area :memo, class: "memo" %>
+    </div>
+  </div>
+
+  <div class="content">
+  <div class="btn-content">
+    <%= form.submit "登録する", class:"btn" %>
+  </div>
+  </div>
+
+<% end %>
+</div>
+</div>
