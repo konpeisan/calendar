@@ -1,7 +1,7 @@
 <%= render "header" %>
 
 <%= month_calendar events: @budgets do |date, budgets| %>
-<%= link_to date.day, new_budget_path %>
+<%= link_to date.day, new_budget_path(date) %>
 
 <% budgets.each do |budget| %>
 <div><%= budget.total %></div>
