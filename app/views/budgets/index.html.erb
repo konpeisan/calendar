@@ -3,8 +3,32 @@
 <%= month_calendar events: @budgets do |date, budgets| %>
 <%= link_to date.day, new_budget_path(date) %>
 
+<% @sum = 0 %>
 <% budgets.each do |budget| %>
-<div><%= link_to budget.total, edit_budget_path(budget.id) %></div>
+<% @sum += budget.total.to_i %>
+<% end %>
+<% if @sum.to_i > 0 %>
+<div><span style="color:blue">+<%= @sum %></span></div>
+<% elsif @sum.to_i == 0 && budgets.present? %>
+<div><span style="color:black"><%= @sum %></span></div>
+<% elsif @sum.to_i < 0 %>
+<div><span style="color:red"><%= @sum %></span></div>
+<% end %>
+<% end %>
+
+<% @budgets.each do |budget| %>
+<% if budget.total.to_i > 0 %>
+<div>
+  <span style="color:blue">+<%= link_to budget.total, edit_budget_path(budget.id) %></span>
+</div>
+<% elsif budget.total.to_i == 0 %>
+<div>
+  <span style="color:black"><%= link_to budget.total, edit_budget_path(budget.id) %></span>
+</div>
+<% else %>
+<div>
+  <span style="color:red"><%= link_to budget.total, edit_budget_path(budget.id) %></span>
+</div>
 <% end %>
 <% end %>
 
