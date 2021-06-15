@@ -9,8 +9,8 @@
     <% @budgets.each do |budget| %>
     <% if budget.start_time.month == start_date.month  &&  budget.start_time.year == start_date.year %>
     <% @month_sum += budget.total.to_i %>
-    <%end%>
-    <%end%>
+    <% end %>
+    <% end %>
 
     <% if @month_sum > 0 %>
     <span style="color:blue">+<%= @month_sum %></span>
@@ -20,6 +20,12 @@
     <span style="color:red"><%= @month_sum %></span>
     <% end %>
     </span>
+
+    <% unless Date.today.year == start_date.year && Date.today.month == start_date.month %>
+    <span class="root">
+    <%= link_to "今日", root_path %>
+    </span>
+    <% end %>
   </div>
 
   <table class="table table-striped">
