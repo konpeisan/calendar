@@ -7,7 +7,7 @@
     <span class="sum">
     <% @month_sum = 0 %>
     <% @budgets.each do |budget| %>
-    <% if budget.start_time.month == start_date.month %>
+    <% if budget.start_time.month == start_date.month  &&  budget.start_time.year == start_date.year %>
     <% @month_sum += budget.total.to_i %>
     <%end%>
     <%end%>
