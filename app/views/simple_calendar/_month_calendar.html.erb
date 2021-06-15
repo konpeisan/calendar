@@ -3,17 +3,21 @@
     <%= link_to t('simple_calendar.previous', default: '前月へ'), calendar.url_for_previous_view %>
     <span class="calendar-title"> <%= start_date.year %>年 <%= t('date.month_names')[start_date.month] %></span>
     <%= link_to t('simple_calendar.next', default: '次月へ'), calendar.url_for_next_view %>
+
     <span class="sum">
     <% @month_sum = 0 %>
     <% @budgets.each do |budget| %>
-      <% @month_sum += budget.total.to_i %>
-    <% end %>
-    <% if @month_sum.to_i > 0 %>
-    <span style="color:blue">+<%= @month_sum.to_i %></span>
-    <% elsif @month_sum == 0 && @budget.present? %>
-    <span style="color:black"><%= @month_sum.to_i %></span>
-    <% else %>
-    <span style="color:red"><%= @month_sum.to_i %></span>
+    <% if budget.start_time.month == start_date.month %>
+    <% @month_sum += budget.total.to_i %>
+    <%end%>
+    <%end%>
+
+    <% if @month_sum > 0 %>
+    <span style="color:blue">+<%= @month_sum %></span>
+    <% elsif @month_sum == 0 && @budgets.present? %>
+    <span style="color:black"><%= @month_sum %></span>
+    <% elsif @month_sum < 0 %>
+    <span style="color:red"><%= @month_sum %></span>
     <% end %>
     </span>
   </div>
