@@ -41,7 +41,7 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <%= content_tag :td, id: "calendar-button", class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>
@@ -51,6 +51,10 @@
           <% end %>
         </tr>
       <% end %>
+      <ul class="show-lists hidden" id="pull-down">
+            <li>結果作成</li>
+            <li>結果詳細</li>
+          </ul>
     </tbody>
   </table>
 </div>
