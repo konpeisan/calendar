@@ -9,12 +9,15 @@ function pullDown(){
     pullDownButton.removeAttribute("style", "background-color:blue;")
   })
   pullDownButton.addEventListener('click', function(e){
-    if (pullDownParents.getAttribute("style") == "display:block;"){
+    if (pullDownParents.getAttribute("type") == "test"){
+      console.log("click")
       pullDownParents.removeAttribute("style", "display:block;")
+      pullDownParents.removeAttribute("type", "test")
     } else {
       pullDownParents.setAttribute("style", "display:block;")
       pullDownParents.style.left = e.pageX+"px"
       pullDownParents.style.top = e.pageY+"px"
+      pullDownParents.setAttribute("type", "test")
     }
   })
 }
