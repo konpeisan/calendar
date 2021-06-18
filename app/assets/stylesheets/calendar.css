@@ -20,3 +20,7 @@
 .hidden li{
   cursor: pointer;
 }
+
+.table-striped td:hover {
+  background-color: #d9efff;
+}
