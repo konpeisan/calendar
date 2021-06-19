@@ -3,10 +3,12 @@
 <%= month_calendar events: @budgets do |date, budgets| %>
 <%= date.day %>
 
+<div class="box">
 <ul class="hidden_box">
   <li><%= link_to "結果作成", new_budget_path(date) %></li>
   <li><%= link_to "結果詳細", "#" %></li>
 </ul>
+</div>
 
 <% @sum = 0 %>
 <% budgets.each do |budget| %>

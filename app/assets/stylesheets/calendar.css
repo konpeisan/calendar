@@ -12,16 +12,31 @@
 }
 
 .hidden_box {
-  display: none;
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #000;
-  background-color: #fff;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  box-shadow: 0px 4px 10px darkgray;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.hidden_box li{
-  cursor: pointer;
+.hidden_box li a {
+  display: list-item;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 2.8;
+  background-color: #9fb7d4;
+  transition: 0.5s;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.hidden_box {
+  display: none;
+  position: fixed;
 }
 
 .table-striped td:hover {
