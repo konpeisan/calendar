@@ -1,3 +1,8 @@
+.body {
+  padding: 0;
+  margin: 0;
+}
+
 .sum {
   margin-left: 20px;
 }
@@ -6,21 +11,23 @@
   margin-left: auto;
 }
 
-.hidden {
+.hidden_box {
   display: none;
   position: fixed;
-  left: 0px;
-  top: 0px;
   width: 100px;
   height: 100px;
   border: 1px solid #000;
   background-color: #fff;
 }
 
-.hidden li{
+.hidden_box li{
   cursor: pointer;
 }
 
 .table-striped td:hover {
   background-color: #d9efff;
+}
+
+.table-striped td:hover .hidden_box{
+  display: block;
 }
