@@ -82,7 +82,7 @@
 .hidden_box li:hover > ul > li{
   overflow: visible;
   height: 38px;
-  left: 500%;
+  left: 100%;
   width: 100%;
 }
 
@@ -95,4 +95,4 @@
     height: 0;
     border: 5px solid transparent;
     border-left-color: #454e08;
-  }
+}
