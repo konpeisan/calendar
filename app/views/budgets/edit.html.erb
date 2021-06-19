@@ -48,11 +48,10 @@
 
   <div class="content">
   <div class="btn-content">
-    <%= form.submit "登録する", class:"btn" %>
+    <%= form.submit "編集", class:"btn" %>
+    <%= link_to "削除", budget_path(@budget.id), method: :delete, class: "btn delete-btn btn--circle btn--circle-a btn--shadow" %>
   </div>
   </div>
-
-  <%= link_to "削除", budget_path(@budget.id), method: :delete %>
 
 <% end %>
 </div>
