@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+}
+
+.side-bar {
+  width: 200px;
+  height: 100vh;
+}
+
+.main {
+  width: calc(100vw - 200px);
+}
