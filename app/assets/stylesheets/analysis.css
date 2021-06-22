@@ -3,10 +3,12 @@
 }
 
 .side-bar {
+  background-color: #253141;
   width: 200px;
   height: 100vh;
 }
 
-.main {
+.main-budget {
+  background-color: #FFFFFF;
   width: calc(100vw - 200px);
 }
