@@ -11,4 +11,5 @@
 .main-budget {
   background-color: #FFFFFF;
   width: calc(100vw - 200px);
+  overflow: scroll;
 }
