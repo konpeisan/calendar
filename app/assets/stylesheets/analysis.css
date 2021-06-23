@@ -43,9 +43,9 @@
   position: relative;
   text-decoration: none;
   color: #2c2b2b;
-  width: 50vw;
-  height: 180px;
-  line-height: 40px;
+  width: 50%;
+  height: 150px;
+
   border-radius: 5px;
   text-align: center;
   overflow: hidden;
@@ -59,7 +59,7 @@
 .main-data {
   display: flex;
   justify-content: space-between;
-  margin: 0 10px 0 10px;
+  margin: 0 20px 0 20px;
   font-size: 20px;
 }
 
@@ -69,10 +69,15 @@
 
 .toshi-data {
   display: flex;
-  justify-content: space-between;
-  width: 25vw;
+}
+
+.win-date {
+  display: flex;
+  justify-content: start;
 }
 
 .price-data {
   margin-right: 10px;
+  display: flex;
+  justify-content: end;
 }

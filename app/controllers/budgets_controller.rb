@@ -39,6 +39,10 @@ class BudgetsController < ApplicationController
     redirect_to root_path
   end
 
+  def analysis
+    @budgets = Budget.all
+  end
+
   private
   def budget_params
     params.require(:budget).permit(:start_time,:price,:recovery,:yen_id,:total,:memo,:image)

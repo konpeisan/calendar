@@ -1,6 +1,32 @@
 <%= render "header" %>
 
 <body>
+
+<% total = 0 %>
+<% price = 0 %>
+<% recovery = 0 %>
+<% win = 0 %>
+<% lose = 0 %>
+<% draw = 0 %>
+<% probability = 0 %>
+<% num = Budget.count.to_i %>
+
+<% @budgets.each do |budget| %>
+<% total += budget.total.to_i %>
+<% price += budget.price.to_i %>
+<% recovery += budget.recovery.to_i %>
+
+<% if budget.total.to_i > 0 %>
+<% win += 1 %>
+<% elsif budget.total.to_i < 0 %>
+<% lose += 1 %>
+<% elsif budget.total.to_i == 0 %>
+<% draw += 1 %>
+<%end%>
+
+<%end%>
+<% probability = (win/num.to_f*100).floor(2)  %>
+
 <div class="wrapper">
 
 <div class="side-bar">
@@ -13,7 +39,12 @@
 <div class="budget">
   <div class="main-data">
   <p>全収支</p>
-  <p>収支</p>
+
+  <% if total < 0 %>
+    収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span>
+  <%else%>
+    収支<%= "+#{total.to_s(:delimited)}円" %>
+  <%end%>
   </div>
   <div class="data">
     <div class="toshi-data">
@@ -25,8 +56,8 @@
       </div>
       <div class="price-data">
       <ul>
-        <li>111500000000000</li>
-        <li>15000</li>
+        <li><%= "#{num}回" %></li>
+        <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
       </ul>
       </div>
     </div>
@@ -39,8 +70,8 @@
       </div>
       <div class="price-data">
       <ul>
-        <li>10000000000</li>
-        <li>20000</li>
+        <li><%= "#{price.to_s(:delimited)}円"  %></li>
+        <li><%= "#{recovery.to_s(:delimited)}円" %></li>
       </ul>
       </div>
     </div>
