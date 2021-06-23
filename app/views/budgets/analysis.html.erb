@@ -30,53 +30,85 @@
 <div class="wrapper">
 
 <div class="side-bar">
-<div class="side-contents">
-  <div class="side-content">全収支</div>
-</div>
-</div>
+  <div class="side-contents">
+    <input id="all" type="radio" name="side-content" class="tab-switch" checked="checked" >
+    <label class="side-content" for="all" >全収支</label>
 
-<div class="main-budget">
-<div class="budget">
-  <div class="main-data">
-  <p>全収支</p>
+    <div class="main-budget">
+      <div class="budget">
+        <div class="main-data">
+          <p>全収支</p>
 
-  <% if total < 0 %>
-    収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span>
-  <%else%>
-    収支<%= "+#{total.to_s(:delimited)}円" %>
-  <%end%>
-  </div>
-  <div class="data">
-    <div class="toshi-data">
-      <div class="win-data">
-      <ul>
-        <li>回数</li>
-        <li>勝率</li>
-      </ul>
-      </div>
-      <div class="price-data">
-      <ul>
-        <li><%= "#{num}回" %></li>
-        <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
-      </ul>
+          <% if total < 0 %>
+            <p>収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span></p>
+          <%else%>
+            <p>収支<%= "+#{total.to_s(:delimited)}円" %></p>
+          <%end%>
+        </div>
+        <div class="data">
+          <div class="toshi-data">
+            <div class="win-data">
+              <ul>
+                <li>回数</li>
+                <li>勝率</li>
+              </ul>
+            </div>
+            <div class="price-data">
+              <ul>
+                <li><%= "#{num}回" %></li>
+                <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
+              </ul>
+            </div>
+          </div>
+          <div class="toshi-data">
+            <div class="win-data">
+              <ul>
+                <li>投資</li>
+                <li>回収</li>
+              </ul>
+            </div>
+            <div class="price-data">
+              <ul>
+                <li><%= "#{price.to_s(:delimited)}円"  %></li>
+                <li><%= "#{recovery.to_s(:delimited)}円" %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="toshi-data">
-      <div class="win-data">
-      <ul>
-        <li>投資</li>
-        <li>回収</li>
-      </ul>
-      </div>
-      <div class="price-data">
-      <ul>
-        <li><%= "#{price.to_s(:delimited)}円"  %></li>
-        <li><%= "#{recovery.to_s(:delimited)}円" %></li>
-      </ul>
-      </div>
-    </div>
   </div>
 </div>
+
+
+
+
+
+
+    <input id="year" type="radio" name="side-content" >
+    <label class="side-content" for="year">年別</label>
+
+    <input id="month" type="radio" name="side-content" >
+    <label class="side-content" for="month">月別</label>
+
+    <input id="hall" type="radio" name="side-content" >
+    <label class="side-content" for="hall">ホール別</label>
+
+    <input id="model" type="radio" name="side-content" >
+    <label class="side-content" for="model">機種別</label>
+
+    <input id="pachinko" type="radio" name="side-content" >
+    <label class="side-content" for="pachinko">パチンコ</label>
+
+    <input id="slot" type="radio" name="side-content" >
+    <label class="side-content" for="slot">スロット</label>
+
+    <input id="other" type="radio" name="side-content" >
+    <label class="side-content" for="other">その他</label>
+
+
+
+
 </div>
 
 </body>

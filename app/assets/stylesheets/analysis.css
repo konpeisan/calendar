@@ -10,19 +10,26 @@
 
 .side-contents {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+input[name="side-content"] {
+  display: none;
 }
 
 .side-content{
-  margin-top: 10px;
+  margin: 10px;
   font-size: 20px;
-  display: inline-block;
   padding: 0.5em 2em;
   text-decoration: none;
   background: #668ad8;
   color: #FFF;
   border-bottom: solid 4px #627295;
   border-radius: 3px;
+}
+
+.side-content:hover {
+  background-color: #96dbf7;
 }
 
 .side-content:active {
@@ -32,10 +39,15 @@
   border-bottom: none;
 }
 
+.tab-switch:checked+.side-content+.main-budget {
+  display: block;
+}
+
 .main-budget {
   background-color: #FFFFFF;
   width: calc(100vw - 200px);
   overflow: scroll;
+  display: none;
 }
 
 .budget {
