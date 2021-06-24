@@ -1,0 +1,136 @@
+<div class="cp_tabpanels">
+  <div class="cp_tabpanel">
+    <div class="main-data">
+      <p>全収支</p>
+
+      <% if total < 0 %>
+        <p>収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span></p>
+      <%else%>
+        <p>収支<%= "+#{total.to_s(:delimited)}円" %></p>
+      <%end%>
+    </div>
+    <div class="data">
+      <div class="toshi-data">
+        <div class="win-data">
+          <ul>
+            <li>回数</li>
+            <li>勝率</li>
+          </ul>
+        </div>
+        <div class="price-data">
+          <ul>
+            <li><%= "#{num}回" %></li>
+            <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="toshi-data">
+        <div class="win-data">
+          <ul>
+            <li>投資</li>
+            <li>回収</li>
+          </ul>
+        </div>
+        <div class="price-data">
+          <ul>
+            <li><%= "#{price.to_s(:delimited)}円"  %></li>
+            <li><%= "#{recovery.to_s(:delimited)}円" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+.side-bar {
+  background-color: #253141;
+  width: 200px;
+  height: 100vh;
+}
+
+.side-contents {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+input[name="side-content"] {
+  display: none;
+}
+
+.side-content{
+  
+}
+
+.side-content:hover {
+  background-color: #96dbf7;
+}
+
+.side-content:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.main-budget {
+  background-color: #FFFFFF;
+  overflow: scroll;
+  display: none;
+}
+
+.tab-switch:checked+.side-content+.main-budget {
+  display: block;
+}
+
+
+.budget {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #2c2b2b;
+  width: 50%;
+  height: 150px;
+
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  margin: 10px 0 0 10px;
+}
+
+.main-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px 0 20px;
+  font-size: 20px;
+}
+
+.data {
+  display: flex;
+}
+
+.toshi-data {
+  display: flex;
+}
+
+.win-date {
+  display: flex;
+  justify-content: start;
+}
+
+.price-data {
+  margin-right: 10px;
+  display: flex;
+  justify-content: end;
+}
+

@@ -30,83 +30,64 @@
 <div class="wrapper">
 
 <div class="side-bar">
+
   <div class="side-contents">
-    <input id="all" type="radio" name="side-content" class="tab-switch" checked="checked" >
-    <label class="side-content" for="all" >全収支</label>
-
-    <div class="main-budget">
-      <div class="budget">
-        <div class="main-data">
-          <p>全収支</p>
-
-          <% if total < 0 %>
-            <p>収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span></p>
-          <%else%>
-            <p>収支<%= "+#{total.to_s(:delimited)}円" %></p>
-          <%end%>
-        </div>
-        <div class="data">
-          <div class="toshi-data">
-            <div class="win-data">
-              <ul>
-                <li>回数</li>
-                <li>勝率</li>
-              </ul>
-            </div>
-            <div class="price-data">
-              <ul>
-                <li><%= "#{num}回" %></li>
-                <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
-              </ul>
-            </div>
-          </div>
-          <div class="toshi-data">
-            <div class="win-data">
-              <ul>
-                <li>投資</li>
-                <li>回収</li>
-              </ul>
-            </div>
-            <div class="price-data">
-              <ul>
-                <li><%= "#{price.to_s(:delimited)}円"  %></li>
-                <li><%= "#{recovery.to_s(:delimited)}円" %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 
-
-
-
-
-    <input id="year" type="radio" name="side-content" >
-    <label class="side-content" for="year">年別</label>
-
-    <input id="month" type="radio" name="side-content" >
-    <label class="side-content" for="month">月別</label>
-
-    <input id="hall" type="radio" name="side-content" >
-    <label class="side-content" for="hall">ホール別</label>
-
-    <input id="model" type="radio" name="side-content" >
-    <label class="side-content" for="model">機種別</label>
-
-    <input id="pachinko" type="radio" name="side-content" >
-    <label class="side-content" for="pachinko">パチンコ</label>
-
-    <input id="slot" type="radio" name="side-content" >
-    <label class="side-content" for="slot">スロット</label>
-
-    <input id="other" type="radio" name="side-content" >
-    <label class="side-content" for="other">その他</label>
-
-
+<div class="cp_tab">
+	<input type="radio" name="cp_tab" id="tab2_1" aria-controls="first_tab02" checked>
+	<label for="tab2_1">全収支</label>
+	<input type="radio" name="cp_tab" id="tab2_2" aria-controls="second_tab02">
+	<label for="tab2_2">年別</label>
+	<input type="radio" name="cp_tab" id="tab2_3" aria-controls="third_tab02">
+	<label for="tab2_3">月別</label>
+	<input type="radio" name="cp_tab" id="tab2_4" aria-controls="force_tab02">
+	<label for="tab2_4">ホール別</label>
+  <input type="radio" name="cp_tab" id="tab2_5" aria-controls="fifth_tab02">
+	<label for="tab2_5">機種別</label>
+  <input type="radio" name="cp_tab" id="tab2_6" aria-controls="sixth_tab02">
+	<label for="tab2_6">パチンコ</label>
+  <input type="radio" name="cp_tab" id="tab2_7" aria-controls="seventh_tab02">
+	<label for="tab2_7">スロット</label>
+  <input type="radio" name="cp_tab" id="tab2_8" aria-controls="eighth_tab02">
+	<label for="tab2_8">その他</label>
+	<div class="cp_tabpanels">
+		<div class="cp_tabpanel">
+		<h2>First Tab</h2>
+		<p>First Tab text</p>
+		</div>
+		<div class="cp_tabpanel">
+		<h2>Second Tab</h2>
+		<p>Second Tab text</p>
+		</div>
+		<div class="cp_tabpanel">
+		<h2>Third Tab</h2>
+		<p>Third Tab text</p>
+		</div>
+		<div class="cp_tabpanel">
+		<h2>Force Tab</h2>
+		<p>Force Tab text</p>
+		</div>
+    <div class="cp_tabpanel">
+		<h2>fifth Tab</h2>
+		<p>Force Tab text</p>
+    </div>
+    <div class="cp_tabpanel">
+		<h2>six Tab</h2>
+		<p>Force Tab text</p>
+    </div>
+    <div class="cp_tabpanel">
+		<h2>seven Tab</h2>
+		<p>Force Tab text</p>
+    </div>
+    <div class="cp_tabpanel">
+		<h2>eight Tab</h2>
+		<p>Force Tab text</p>
+    </div>
+	</div>
+</div>
 
 
 </div>

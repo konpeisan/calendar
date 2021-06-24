@@ -1,23 +1,52 @@
 .wrapper {
-  display: flex;
 }
 
-.side-bar {
-  background-color: #253141;
-  width: 200px;
-  height: 100vh;
-}
 
-.side-contents {
-  display: flex;
-  flex-direction: column;
+.cp_tab {
+	margin: 1em auto;
+	position: relative;
 }
-
-input[name="side-content"] {
-  display: none;
+.cp_tab input[type='radio'] {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	background: none;
+	-webkit-appearance: none;
+	        appearance: none;
+	display: none;
 }
+.cp_tab .cp_tabpanel {
+	display: none;
+}
+.cp_tab > input:first-child:checked ~ .cp_tabpanels > .cp_tabpanel:first-child,
+.cp_tab > input:nth-child(3):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(2),
+.cp_tab > input:nth-child(5):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(3),
+.cp_tab > input:nth-child(7):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(4),
+.cp_tab > input:nth-child(9):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(5),
+.cp_tab > input:nth-child(11):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(6),
+.cp_tab > input:nth-child(13):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(7),
+.cp_tab > input:nth-child(15):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(8) {
+	display: block;
+}
+.cp_tab .cp_tabpanels {
+	position: absolute;
+	top:0;
+	left: 10em;
+	display: block;
+	height: 320px;
+}
+.cp_tab > input + label {
+	position: relative;
+	top: -10px;
+	left: 1px;
+	display: block;
+	cursor: pointer;
+	border: 1px solid #cccccc;
+	border-right: 0;
+	border-radius: 6px 0 0 6px;
 
-.side-content{
   margin: 10px;
   font-size: 20px;
   padding: 0.5em 2em;
@@ -26,70 +55,32 @@ input[name="side-content"] {
   color: #FFF;
   border-bottom: solid 4px #627295;
   border-radius: 3px;
+  width: 180px;
 }
-
-.side-content:hover {
-  background-color: #96dbf7;
+.cp_tab > input + label:last-of-type {
+	margin-bottom: 100px;
 }
-
-.side-content:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  border-bottom: none;
+.cp_tab > label:hover,
+.cp_tab > input:focus + label {
+	background-color: #96c6f5;
 }
-
-.tab-switch:checked+.side-content+.main-budget {
-  display: block;
+.cp_tab > input:checked + label {
+	border-color: #cccccc;
+	border-right: 1px solid #ffffff;
 }
-
-.main-budget {
-  background-color: #FFFFFF;
-  width: calc(100vw - 200px);
-  overflow: scroll;
-  display: none;
+.cp_tab .cp_tabpanel {
+	padding: 0.5em 4em;
+	min-height: 320px;
 }
-
-.budget {
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  color: #2c2b2b;
-  width: 50%;
-  height: 150px;
-
-  border-radius: 5px;
-  text-align: center;
-  overflow: hidden;
-  font-weight: bold;
-  background: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-  margin: 10px 0 0 10px;
-}
-
-.main-data {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 20px 0 20px;
-  font-size: 20px;
-}
-
-.data {
-  display: flex;
-}
-
-.toshi-data {
-  display: flex;
-}
-
-.win-date {
-  display: flex;
-  justify-content: start;
-}
-
-.price-data {
-  margin-right: 10px;
-  display: flex;
-  justify-content: end;
+@media (max-width: 500px) {
+	.cp_tab {
+		width: 100%;
+	}
+	.cp_tab > input + label {
+	font-size: 0.7em;
+	}
+	.cp_tab .cp_tabpanels {
+	left: 7em;
+	min-width: 7em;
+	}
 }
