@@ -2,40 +2,6 @@
 
 <body>
 
-<% total = 0 %>
-<% price = 0 %>
-<% recovery = 0 %>
-<% win = 0 %>
-<% lose = 0 %>
-<% draw = 0 %>
-<% probability = 0 %>
-<% num = Budget.count.to_i %>
-
-<% @budgets.each do |budget| %>
-<% total += budget.total.to_i %>
-<% price += budget.price.to_i %>
-<% recovery += budget.recovery.to_i %>
-
-<% if budget.total.to_i > 0 %>
-<% win += 1 %>
-<% elsif budget.total.to_i < 0 %>
-<% lose += 1 %>
-<% elsif budget.total.to_i == 0 %>
-<% draw += 1 %>
-<%end%>
-
-<%end%>
-<% probability = (win/num.to_f*100).floor(2)  %>
-
-<div class="wrapper">
-
-<div class="side-bar">
-
-  <div class="side-contents">
-  </div>
-</div>
-
-
 <div class="cp_tab">
 	<input type="radio" name="cp_tab" id="tab2_1" aria-controls="first_tab02" checked>
 	<label for="tab2_1">全収支</label>
@@ -53,10 +19,10 @@
 	<label for="tab2_7">スロット</label>
   <input type="radio" name="cp_tab" id="tab2_8" aria-controls="eighth_tab02">
 	<label for="tab2_8">その他</label>
+
 	<div class="cp_tabpanels">
 		<div class="cp_tabpanel">
-		<h2>First Tab</h2>
-		<p>First Tab text</p>
+		<%= render "all" %>
 		</div>
 		<div class="cp_tabpanel">
 		<h2>Second Tab</h2>

@@ -1,5 +1,30 @@
-<div class="cp_tabpanels">
-  <div class="cp_tabpanel">
+<% total = 0 %>
+<% price = 0 %>
+<% recovery = 0 %>
+<% win = 0 %>
+<% lose = 0 %>
+<% draw = 0 %>
+<% probability = 0 %>
+<% num = Budget.count.to_i %>
+
+<% @budgets.each do |budget| %>
+<% total += budget.total.to_i %>
+<% price += budget.price.to_i %>
+<% recovery += budget.recovery.to_i %>
+
+<% if budget.total.to_i > 0 %>
+<% win += 1 %>
+<% elsif budget.total.to_i < 0 %>
+<% lose += 1 %>
+<% elsif budget.total.to_i == 0 %>
+<% draw += 1 %>
+<%end%>
+
+<%end%>
+<% probability = (win/num.to_f*100).floor(2)  %>
+
+<div class="main-budget">
+  <div class="budget">
     <div class="main-data">
       <p>全収支</p>
 
@@ -41,96 +66,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-.side-bar {
-  background-color: #253141;
-  width: 200px;
-  height: 100vh;
-}
-
-.side-contents {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-input[name="side-content"] {
-  display: none;
-}
-
-.side-content{
-  
-}
-
-.side-content:hover {
-  background-color: #96dbf7;
-}
-
-.side-content:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  border-bottom: none;
-}
-
-.main-budget {
-  background-color: #FFFFFF;
-  overflow: scroll;
-  display: none;
-}
-
-.tab-switch:checked+.side-content+.main-budget {
-  display: block;
-}
-
-
-.budget {
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  color: #2c2b2b;
-  width: 50%;
-  height: 150px;
-
-  border-radius: 5px;
-  text-align: center;
-  overflow: hidden;
-  font-weight: bold;
-  background: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-  margin: 10px 0 0 10px;
-}
-
-.main-data {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 20px 0 20px;
-  font-size: 20px;
-}
-
-.data {
-  display: flex;
-}
-
-.toshi-data {
-  display: flex;
-}
-
-.win-date {
-  display: flex;
-  justify-content: start;
-}
-
-.price-data {
-  margin-right: 10px;
-  display: flex;
-  justify-content: end;
-}
-
