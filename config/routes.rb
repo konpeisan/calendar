@@ -5,4 +5,5 @@ Rails.application.routes.draw do
       get 'analysis'
     end
   end
+  resources :halls, except: [:new, :show]
 end

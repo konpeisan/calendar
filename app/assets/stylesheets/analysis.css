@@ -31,7 +31,9 @@
 	top:0;
 	left: 10em;
 	display: block;
-	height: 320px;
+	height: 130%;
+	width: 87%;
+	overflow: scroll;
 }
 .cp_tab > input + label {
 	position: relative;
@@ -41,17 +43,16 @@
 	cursor: pointer;
 	border: 1px solid #cccccc;
 	border-right: 0;
-	border-radius: 6px 0 0 6px;
 
   margin: 10px;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0.5em 2em;
   text-decoration: none;
   background: #668ad8;
   color: #FFF;
   border-bottom: solid 4px #627295;
   border-radius: 3px;
-  width: 180px;
+  width: 150px;
 }
 .cp_tab > input + label:last-of-type {
 	margin-bottom: 100px;
@@ -66,7 +67,7 @@
   background-color: #96c6f5;
 }
 .cp_tab .cp_tabpanel {
-	padding: 0.5em 4em;
+	padding: 0.5em 5em;
 	min-height: 320px;
 }
 @media (max-width: 500px) {

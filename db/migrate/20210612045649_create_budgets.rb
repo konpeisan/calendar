@@ -7,6 +7,7 @@ class CreateBudgets < ActiveRecord::Migration[6.0]
       t.integer      :yen_id,          null: false
       t.string       :total
       t.text         :memo
+      t.integer      :store_id
       t.timestamps
     end
   end

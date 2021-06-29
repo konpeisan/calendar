@@ -56,7 +56,7 @@ Things you may want to cover:
 
 | Column       | Type       | Options    |
 | ------------ | ---------- | ---------- |
-| hall_name_id | integer    |            |
+| store_id     | integer    |            |
 
 ### Association
 - belongs_to :user
