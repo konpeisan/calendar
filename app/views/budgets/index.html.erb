@@ -6,10 +6,11 @@
 <div class="box">
 <ul class="hidden_box">
   <li><%= link_to "結果作成", new_budget_path(date) %></li>
+
+  <% if budgets.present? %>
   <li><a href="#">結果詳細</a>
-  <ul>
-    <% budgets.each do |budget| %>
-    <% if budget.present? %>
+<ul>
+  <% budgets.each do |budget| %>
     <li>
     <% if budget.total.to_i > 0 %>
       <%= link_to "+#{budget.total}", edit_budget_path(budget.id) %>

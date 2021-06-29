@@ -2,28 +2,35 @@
 <h1 class="heading-name">結果作成</h1>
 
 <div class="contents">
-<%= form_with(model: @budget, local: true) do |form| %>
+<%= form_with(model: @budget, local: true) do |f| %>
 
   <div class="content">
-    <%= form.label :start_time %>
+    <%= f.label :start_time %>
     <div class="left-content">
-    <%= form.date_select :start_time %>
+    <%= f.date_select :start_time %>
     </div>
   </div>
 
   <div class="content">
-    <%= form.label :price %>
+    <%= f.label :store_id, "ホール名" %>
     <div class="left-content">
-    <%= form.text_field :price, id: "price1" %>
-    <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    <%= f.collection_select :store_id, Hall.all, :id, :store, {prompt: "選択してください"} %>
     </div>
   </div>
 
   <div class="content">
-    <%= form.label :recobery %>
+    <%= f.label :price %>
     <div class="left-content">
-    <%= form.text_field :recovery, id: "price2" %>
-    <%= form.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    <%= f.text_field :price, id: "price1" %>
+    <%= f.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= f.label :recobery %>
+    <div class="left-content">
+    <%= f.text_field :recovery, id: "price2" %>
+    <%= f.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
     </div>
   </div>
 
@@ -36,19 +43,19 @@
 
   <p class="content">今日のハイライト画像</p>
   <div class="content">
-    <%= form.file_field :image %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="content">
-    <%= form.label :memo %>
+    <%= f.label :memo %>
     <div class="left-content">
-    <%= form.text_area :memo, class: "memo" %>
+    <%= f.text_area :memo, class: "memo" %>
     </div>
   </div>
 
   <div class="content">
   <div class="btn-content">
-    <%= form.submit "編集", class:"btn" %>
+    <%= f.submit "編集", class:"btn" %>
     <%= link_to "削除", budget_path(@budget.id), method: :delete, class: "btn delete-btn btn--circle btn--circle-a btn--shadow" %>
   </div>
   </div>

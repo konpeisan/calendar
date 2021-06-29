@@ -20,7 +20,7 @@ class HallsController < ApplicationController
   end
 
   def update
-    if @hall.update(category_params)
+    if @hall.update(hall_params)
       redirect_to halls_path
     else
       render :edit

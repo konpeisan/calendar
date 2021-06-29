@@ -1,4 +1,6 @@
 class BudgetsController < ApplicationController
+  before_action :set_budget, only: [:edit,:update,:destroy]
+
   def index
     @budgets = Budget.all
   end
@@ -20,12 +22,10 @@ class BudgetsController < ApplicationController
   end
 
   def edit
-    @budget = Budget.find(params[:id])
     @day_params = params[:format]
   end
 
   def update
-    @budget = Budget.find(params[:id])
     if @budget.update(budget_params)
       redirect_to root_path
     else
@@ -34,7 +34,6 @@ class BudgetsController < ApplicationController
   end
 
   def destroy
-    @budget = Budget.find(params[:id])
     @budget.destroy
     redirect_to root_path
   end
@@ -45,6 +44,10 @@ class BudgetsController < ApplicationController
 
   private
   def budget_params
-    params.require(:budget).permit(:start_time,:price,:recovery,:yen_id,:total,:memo,:image)
+    params.require(:budget).permit(:start_time,:price,:recovery,:yen_id,:total,:memo,:image,:store_id)
+  end
+
+  def set_budget
+    @budget = Budget.find(params[:id])
   end
 end
