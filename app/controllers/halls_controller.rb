@@ -38,7 +38,7 @@ class HallsController < ApplicationController
       @hall = Hall.find(params[:id])
     end
 
-    def category_params
+    def hall_params
       params.require(:hall).permit(:store)
     end
 end

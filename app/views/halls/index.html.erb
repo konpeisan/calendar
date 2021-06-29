@@ -1,11 +1,13 @@
+<%= render "budgets/header" %>
+
 <div class="row">
 
   <div class="col-xs-3">
-    <%= form_with model: @category, local: true do |f| %>
+    <%= form_with model: @hall, local: true do |f| %>
 
-      <%= f.label :name, 'カテゴリー名' %>
+      <%= f.label :store, 'ホール名' %>
       <br>
-      <%= f.text_field :name, class:'form-control' %>
+      <%= f.text_field :store, class:'form-control' %>
       <br>
 
       <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
@@ -23,14 +25,16 @@
       </thead>
 
       <tbody>
-        <% @categories.each do |category| %>
+        <% @halls.each do |hall| %>
           <tr>
-            <td><%= category.name %></td>
-            <td><%= link_to '編集', edit_category_path(category), class: 'btn-sm btn-primary' %></td>
-            <td><%= link_to '削除', category_path(category), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
+            <td><%= hall.store %></td>
+            <td><%= link_to '編集', edit_hall_path(hall), class: 'btn-sm btn-primary' %></td>
+            <td><%= link_to '削除', hall_path(hall), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
           </tr>
         <%end%>
       </tbody>
     </table>
   </div>
 </div>
+
+<%= render "budgets/footer" %>
