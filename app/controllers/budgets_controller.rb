@@ -40,6 +40,7 @@ class BudgetsController < ApplicationController
 
   def analysis
     @budgets = Budget.all
+    @halls = Hall.all
   end
 
   private
