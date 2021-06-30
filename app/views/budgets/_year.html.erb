@@ -1,31 +1,26 @@
+<% @total = Budget.group("YEAR(start_time)").sum(:total) %>
+<% @price = Budget.group("YEAR(start_time)").sum(:price) %>
+<% @recovery = Budget.group("YEAR(start_time)").sum(:recovery) %>
+<% @num = Budget.group("YEAR(start_time)").count %>
+<% @year = @num.keys %>
+
+
+<% @year.each do |year| %>
+
 <% win = 0 %>
 <% lose = 0 %>
 <% draw = 0 %>
 <% probability = 0 %>
 
-
-<%# if budget.total.to_i > 0 %>
-<%# win += 1 %>
-<%# elsif budget.total.to_i < 0 %>
-<%# lose += 1 %>
-<%# elsif budget.total.to_i == 0 %>
-<%# draw += 1 %>
-<%#end%>
-
-<%#end%>
-<%# probability = (win/num.to_f*100).floor(2)  %>
-
-<%# total.each do |year,total| %>
-<% Budget.group("YEAR(start_time)").sum(:total).each do |year,total| %>
 <div class="main-budget">
   <div class="budget">
     <div class="main-data">
       <p><%= "#{year}年" %></p>
 
-      <% if total.to_i < 0 %>
-        <p>収支<span style="color:red"><%= "#{number_to_currency(total, strip_insignificant_zeros: true)}" %></span></p>
+      <% if @total[year].to_i < 0 %>
+        <p>収支<span style="color:red"><%= "#{number_to_currency(@total[year], strip_insignificant_zeros: true)}" %></span></p>
       <%else%>
-        <p>収支<%= "+#{number_to_currency(total, strip_insignificant_zeros: true)}" %></p>
+        <p>収支<%= "+#{number_to_currency(@total[year], strip_insignificant_zeros: true)}" %></p>
       <%end%>
 
     </div>
@@ -39,10 +34,18 @@
         </div>
         <div class="price-data">
           <ul>
-            <% Budget.group("YEAR(start_time)").count.each do |year,num| %>
-            <li><%= "#{num}回" %></li>
+            <li><%= "#{@num[year]}回" %></li>
+
+            <% Budget.where(start_time: "#{year}-01-01".."#{year}-12-31").pluck(:total).each do |budget| %>
+            <% if budget.to_i > 0 %>
+            <% win += 1 %>
+            <% elsif budget.to_i < 0 %>
+            <% lose += 1 %>
+            <% elsif budget.to_i == 0 %>
+            <% draw += 1 %>
             <%end%>
-            <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
+            <%end%>
+            <li><%= "#{probability = (win/@num[year].to_f*100).floor(2)}% (#{win}勝#{lose}敗#{draw}分)" %></li>
           </ul>
         </div>
       </div>
@@ -55,12 +58,8 @@
         </div>
         <div class="price-data">
           <ul>
-            <% Budget.group("YEAR(start_time)").sum(:price).each do |year,price| %>
-            <li><%= "#{number_to_currency(price, strip_insignificant_zeros: true)}"  %></li>
-            <%end%>
-            <% Budget.group("YEAR(start_time)").sum(:recovery).each do |year,recovery| %>
-            <li><%= "#{number_to_currency(recovery, strip_insignificant_zeros: true)}" %></li>
-            <%end%>
+            <li><%= "#{number_to_currency(@price[year], strip_insignificant_zeros: true)}"  %></li>
+            <li><%= "#{number_to_currency(@recovery[year], strip_insignificant_zeros: true)}" %></li>
           </ul>
         </div>
       </div>
