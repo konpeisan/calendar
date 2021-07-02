@@ -46,6 +46,8 @@ Things you may want to cover:
 | recovery    | string   | null: false |
 | yen_id      | integer  | null: false |
 | memo        | text     |             |
+| store_id    | integer  |             |
+| type_name_id| integer  |             |
 
 ### Association
 - belongs_to :user
@@ -56,7 +58,7 @@ Things you may want to cover:
 
 | Column       | Type       | Options    |
 | ------------ | ---------- | ---------- |
-| store_id     | integer    |            |
+| store_id     | string     |            |
 
 ### Association
 - belongs_to :user
@@ -66,9 +68,9 @@ Things you may want to cover:
 
 | Column       | Type       | Options   |
 | ------------ | ---------- | --------- |
-| type_name_id | integer    |           |
-| pachinko     | integer    |           |
-| slot         | integer    |           |
+| type_name    | string     |           |
+| pachinko     | string     |           |
+| slot         | string     |           |
 
 ### Association
 - belongs_to :user
