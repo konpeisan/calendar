@@ -19,6 +19,13 @@
     </div>
 
     <div class="content">
+      <%= f.label :type_name_id, "機種名" %>
+      <div class="left-content">
+      <%= f.collection_select :type_name_id, Type.all, :id, :type_name, {prompt: "選択してください"} %>
+      </div>
+    </div>
+
+    <div class="content">
       <%= f.label :price, "投資" %>
       <div class="left-content">
       <%= f.text_field :price, id: "price1" %>
