@@ -5,6 +5,32 @@
   <div class="col-xs-3">
     <%= form_with model: @type, local: true do |f| %>
 
+      <%= f.radio_button :pachi_slot, :pachinko, id: 'pachinko', checked: true %>
+      <%= f.label :pachi_slot, "パチンコ", {value: :pachi_slot, style: "display: inline-block;"} %>
+      <%= f.radio_button :pachi_slot, :slot, id: 'slot' %>
+      <%= f.label :pachi_slot, "スロット", {value: :pachi_slot, style: "display: inline-block;"} %>
+      <br>
+      <div class="pachinko">
+      <%= f.radio_button :kind, :middle %>
+      <%= f.label :kind, "ミドル", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :light_middle %>
+      <%= f.label :kind, "ライトミドル", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :light %>
+      <%= f.label :kind, "甘デジ", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :other %>
+      <%= f.label :kind, "その他", {value: :kind, style: "display: inline-block;"} %>
+      </div>
+      <div class="slot">
+      <%= f.radio_button :kind, :at %>
+      <%= f.label :kind, "AT", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :art %>
+      <%= f.label :kind, "ART", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :rt %>
+      <%= f.label :kind, "A+RT", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :a %>
+      <%= f.label :kind, "A", {value: :kind, style: "display: inline-block;"} %>
+      </div>
+      <br>
       <%= f.label :type_name, '機種名' %>
       <br>
       <%= f.text_field :type_name, class:'form-control' %>

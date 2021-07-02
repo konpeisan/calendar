@@ -1,0 +1,8 @@
+.pachinko,.slot {
+  display: none;
+}
+
+input[type="radio"]:checked#pachinko~div.pachinko,
+input[type="radio"]:checked#slot~div.slot {
+  display: block;
+}

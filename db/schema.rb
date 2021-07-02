@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_101054) do
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type_name"
-    t.string "pachinko"
-    t.string "slot"
+    t.string "pachi_slot"
+    t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

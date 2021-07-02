@@ -45,7 +45,7 @@ class BudgetsController < ApplicationController
 
   private
   def budget_params
-    params.require(:budget).permit(:start_time,:price,:recovery,:yen_id,:total,:memo,:image,:store_id)
+    params.require(:budget).permit(:start_time,:price,:recovery,:yen_id,:total,:memo,:image,:store_id,:type_name_id)
   end
 
   def set_budget

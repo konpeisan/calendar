@@ -39,6 +39,6 @@ class TypesController < ApplicationController
   end
 
   def type_params
-    params.require(:type).permit(:type_name,:pachinko,:slot)
+    params.require(:type).permit(:type_name,:pachi_slot,:kind)
   end
 end
