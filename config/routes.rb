@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     end
   end
   resources :halls, except: [:new, :show]
+  resources :types, except: [:new, :show]
 end
