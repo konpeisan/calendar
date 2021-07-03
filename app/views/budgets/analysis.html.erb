@@ -45,7 +45,8 @@
     <div class="cp_tabpanel">
 		<% @middle = Type.where(kind: "ミドル").pluck(:id) %>
 		<% Budget.where(type_name_id: @middle).sum(:total) %>
-		<%#= render "pachinko" %>
+		<%= render "pachinko" %>
+		<%= render "middle" %>
     </div>
     <div class="cp_tabpanel">
 		<h2>seven Tab</h2>
