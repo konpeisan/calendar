@@ -10,6 +10,9 @@
 <% draw = 0 %>
 <% probability = 0 %>
 
+<% if @budgets.exists?(type_name_id: @pachi_slot) %>
+
+
 <div class="main-budget">
   <div class="budget">
     <div class="main-data">
@@ -63,4 +66,4 @@
     </div>
   </div>
 </div>
-
+<%end%>
