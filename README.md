@@ -51,8 +51,8 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_many :halls
-- has_many :types
+- belongs_to :hall
+- belongs_to :type
 
 ## halls テーブル
 
@@ -62,16 +62,16 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :budget
+- has_many :budget
 
 ## types テーブル
 
 | Column       | Type       | Options   |
 | ------------ | ---------- | --------- |
 | type_name    | string     |           |
-| pachinko     | string     |           |
-| slot         | string     |           |
+| pachi_slot   | string     |           |
+| kind         | string     |           |
 
 ### Association
 - belongs_to :user
-- belongs_to :budget
+- has_many :budgets

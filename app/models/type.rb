@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-  belongs_to :budget, optional: true
+  has_many :budgets
 end

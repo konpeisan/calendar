@@ -30,8 +30,10 @@
 
       <% if total < 0 %>
         <p>収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span></p>
+      <%elsif total == 0 %>
+        <p>収支<%= "#{total.to_s(:delimited)}円" %></p>
       <%else%>
-        <p>収支<%= "+#{total.to_s(:delimited)}円" %></p>
+        <p>収支<span style="color:blue"><%= "+#{total.to_s(:delimited)}円" %></span></p>
       <%end%>
     </div>
     <div class="data">

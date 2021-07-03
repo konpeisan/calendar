@@ -41,10 +41,11 @@
     <div class="cp_tabpanel">
 		<%= render "type" %>
     </div>
-		
+
     <div class="cp_tabpanel">
-		<h2>six Tab</h2>
-		<p>Force Tab text</p>
+		<% @middle = Type.where(kind: "ミドル").pluck(:id) %>
+		<% Budget.where(type_name_id: @middle).sum(:total) %>
+		<%#= render "pachinko" %>
     </div>
     <div class="cp_tabpanel">
 		<h2>seven Tab</h2>

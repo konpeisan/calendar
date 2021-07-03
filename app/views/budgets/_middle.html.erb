@@ -1,5 +1,5 @@
-<% @pachi_slot = Type.where(pachi_slot: "パチンコ").pluck(:id) %>
-<% @total = Budget.where(type_name_id: @pachi_slot).sum(:total) %>
+<% @middle = Type.where(kind: "ミドル").pluck(:id) %>
+<% Budget.where(type_name_id: @middle).sum(:total) %>
 <% @price = Budget.where(type_name_id: @pachi_slot).sum(:price) %>
 <% @recovery = Budget.where(type_name_id: @pachi_slot).sum(:recovery) %>
 <% @num = Budget.where(type_name_id: @pachi_slot).count %>
