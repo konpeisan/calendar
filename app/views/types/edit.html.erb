@@ -2,19 +2,46 @@
 
 <div class="row">
   <div class="col-xs-3">
-  </div>
-
-  <div class="col-xs-6">
     <%= form_with model: @type, local: true do |f| %>
 
+      <%= f.radio_button :pachi_slot, :"パチンコ", id: 'pachinko', checked: true %>
+      <%= f.label :pachi_slot, "パチンコ", {value: :pachi_slot, style: "display: inline-block;"} %>
+      <%= f.radio_button :pachi_slot, :"スロット", id: 'slot' %>
+      <%= f.label :pachi_slot, "スロット", {value: :pachi_slot, style: "display: inline-block;"} %>
+      <br>
+      <div class="pachinko">
+      <%= f.radio_button :kind, :"ミドル" %>
+      <%= f.label :kind, "ミドル", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :"ライトミドル" %>
+      <%= f.label :kind, "ライトミドル", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :"甘デジ" %>
+      <%= f.label :kind, "甘デジ", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :"その他" %>
+      <%= f.label :kind, "その他", {value: :kind, style: "display: inline-block;"} %>
+      </div>
+      <div class="slot">
+      <%= f.radio_button :kind, :"AT" %>
+      <%= f.label :kind, "AT", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :"ART" %>
+      <%= f.label :kind, "ART", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :"A+RT" %>
+      <%= f.label :kind, "A+RT", {value: :kind, style: "display: inline-block;"} %>
+      <%= f.radio_button :kind, :"A" %>
+      <%= f.label :kind, "A", {value: :kind, style: "display: inline-block;"} %>
+      </div>
+      <br>
       <%= f.label :type_name, '機種名' %>
       <br>
       <%= f.text_field :type_name, class:'form-control' %>
       <br>
 
-      <%= f.submit '保存', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
     <%end%>
 
+    <%= link_to '戻る', :back %>
+  </div>
+
+  <div class="col-xs-6">
   </div>
 </div>
 
