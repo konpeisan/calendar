@@ -1,3 +1,3 @@
 class Hall < ApplicationRecord
-  has_many :budgets
+  belongs_to :budget, optional: true
 end

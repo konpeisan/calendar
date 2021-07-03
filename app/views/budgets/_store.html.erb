@@ -5,6 +5,8 @@
 
 
 <% @halls.each do |hall| %>
+<% if @budgets.exists?(store_id: hall.id) %>
+
 
 <% win = 0 %>
 <% lose = 0 %>
@@ -64,4 +66,5 @@
     </div>
   </div>
 </div>
+<%end%>
 <%end%>

@@ -5,6 +5,7 @@
 
 
 <% @types.each do |type| %>
+<% if @budgets.exists?(type_name_id: type.id) %>
 
 <% win = 0 %>
 <% lose = 0 %>
@@ -64,4 +65,5 @@
     </div>
   </div>
 </div>
+<%end%>
 <%end%>
