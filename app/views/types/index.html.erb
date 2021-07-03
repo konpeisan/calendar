@@ -5,29 +5,29 @@
   <div class="col-xs-3">
     <%= form_with model: @type, local: true do |f| %>
 
-      <%= f.radio_button :pachi_slot, :pachinko, id: 'pachinko', checked: true %>
+      <%= f.radio_button :pachi_slot, :"パチンコ", id: 'pachinko', checked: true %>
       <%= f.label :pachi_slot, "パチンコ", {value: :pachi_slot, style: "display: inline-block;"} %>
-      <%= f.radio_button :pachi_slot, :slot, id: 'slot' %>
+      <%= f.radio_button :pachi_slot, :"スロット", id: 'slot' %>
       <%= f.label :pachi_slot, "スロット", {value: :pachi_slot, style: "display: inline-block;"} %>
       <br>
       <div class="pachinko">
-      <%= f.radio_button :kind, :middle %>
+      <%= f.radio_button :kind, :"ミドル" %>
       <%= f.label :kind, "ミドル", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :light_middle %>
+      <%= f.radio_button :kind, :"ライトミドル" %>
       <%= f.label :kind, "ライトミドル", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :light %>
+      <%= f.radio_button :kind, :"甘デジ" %>
       <%= f.label :kind, "甘デジ", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :other %>
+      <%= f.radio_button :kind, :"その他" %>
       <%= f.label :kind, "その他", {value: :kind, style: "display: inline-block;"} %>
       </div>
       <div class="slot">
-      <%= f.radio_button :kind, :at %>
+      <%= f.radio_button :kind, :"AT" %>
       <%= f.label :kind, "AT", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :art %>
+      <%= f.radio_button :kind, :"ART" %>
       <%= f.label :kind, "ART", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :rt %>
+      <%= f.radio_button :kind, :"A+RT" %>
       <%= f.label :kind, "A+RT", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :a %>
+      <%= f.radio_button :kind, :"A" %>
       <%= f.label :kind, "A", {value: :kind, style: "display: inline-block;"} %>
       </div>
       <br>
@@ -51,7 +51,7 @@
       <tbody>
         <% @types.each do |type| %>
           <tr>
-            <td><%= type.type_name %></td>
+            <td><%= "[#{type.pachi_slot}]#{type.type_name}" %></td>
             <td><%= link_to '編集', edit_type_path(type), class: 'btn-sm btn-primary' %></td>
             <td><%= link_to '削除', type_path(type), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
           </tr>
