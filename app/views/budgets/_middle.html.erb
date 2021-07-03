@@ -33,7 +33,7 @@
           <ul>
             <li><%= "#{@num}回" %></li>
 
-            <% Budget.where(type_name_id: @pachi_slot).pluck(:total).each do |budget| %>
+            <% Budget.where(type_name_id: @middle).pluck(:total).each do |budget| %>
             <% if budget.to_i > 0 %>
             <% win += 1 %>
             <% elsif budget.to_i < 0 %>
