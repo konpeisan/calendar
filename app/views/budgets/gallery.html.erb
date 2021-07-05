@@ -1,3 +1,14 @@
 <%= render "header" %>
 
+<div class="contents row">
+  <div class="more">
+    <% @budgets.each do |budget| %>
+      <% if budget.image.attached? %>
+      <%= budget.start_time %>
+      <%end%>
+      <%= image_tag budget.image.variant(resize: '300x300'), class: "budget-image" if budget.image.attached?  %>
+    <%end%>
+  </div>
+</div>
+
 <%= render "footer" %>
