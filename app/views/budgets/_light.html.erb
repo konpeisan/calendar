@@ -19,8 +19,10 @@
 
       <% if @total.to_i < 0 %>
         <p>収支<span style="color:red"><%= "#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></span></p>
+      <%elsif @total.to_i == 0%>
+        <p>収支<%= "#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></p>
       <%else%>
-        <p>収支<%= "+#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></p>
+        <p>収支<span style="color:blue"><%= "+#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></span></p>
       <%end%>
     </div>
     <div class="data">

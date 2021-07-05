@@ -1,8 +1,8 @@
-<% @middle = Type.where(kind: "ミドル").pluck(:id) %>
-<% @total = Budget.where(type_name_id: @middle).sum(:total) %>
-<% @price = Budget.where(type_name_id: @middle).sum(:price) %>
-<% @recovery = Budget.where(type_name_id: @middle).sum(:recovery) %>
-<% @num = Budget.where(type_name_id: @middle).count %>
+<% @other = Type.where(pachi_slot: "その他").pluck(:id) %>
+<% @total = Budget.where(type_name_id: @other).sum(:total) %>
+<% @price = Budget.where(type_name_id: @other).sum(:price) %>
+<% @recovery = Budget.where(type_name_id: @other).sum(:recovery) %>
+<% @num = Budget.where(type_name_id: @other).count %>
 
 
 <% win = 0 %>
@@ -10,13 +10,12 @@
 <% draw = 0 %>
 <% probability = 0 %>
 
-<% if @budgets.exists?(type_name_id: @middle) %>
-
+<% if @budgets.exists?(type_name_id: @other) %>
 
 <div class="main-budget">
   <div class="budget">
     <div class="main-data">
-      <p><%= "ミドルタイプ" %></p>
+      <p><%= "その他" %></p>
 
       <% if @total.to_i < 0 %>
         <p>収支<span style="color:red"><%= "#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></span></p>
@@ -38,7 +37,7 @@
           <ul>
             <li><%= "#{@num}回" %></li>
 
-            <% Budget.where(type_name_id: @middle).pluck(:total).each do |budget| %>
+            <% Budget.where(type_name_id: @other).pluck(:total).each do |budget| %>
             <% if budget.to_i > 0 %>
             <% win += 1 %>
             <% elsif budget.to_i < 0 %>
