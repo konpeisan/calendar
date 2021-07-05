@@ -9,6 +9,8 @@
       <%= f.label :pachi_slot, "パチンコ", {value: :pachi_slot, style: "display: inline-block;"} %>
       <%= f.radio_button :pachi_slot, :"スロット", id: 'slot' %>
       <%= f.label :pachi_slot, "スロット", {value: :pachi_slot, style: "display: inline-block;"} %>
+      <%= f.radio_button :pachi_slot, :"その他" %>
+      <%= f.label :pachi_slot, "その他", {value: :pachi_slot, style: "display: inline-block;"} %>
       <br>
       <div class="pachinko">
       <%= f.radio_button :kind, :"ミドル" %>
@@ -17,8 +19,6 @@
       <%= f.label :kind, "ライトミドル", {value: :kind, style: "display: inline-block;"} %>
       <%= f.radio_button :kind, :"甘デジ" %>
       <%= f.label :kind, "甘デジ", {value: :kind, style: "display: inline-block;"} %>
-      <%= f.radio_button :kind, :"その他" %>
-      <%= f.label :kind, "その他", {value: :kind, style: "display: inline-block;"} %>
       </div>
       <div class="slot">
       <%= f.radio_button :kind, :"AT" %>
