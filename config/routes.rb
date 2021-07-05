@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     collection do
       get 'analysis'
     end
+    collection do
+      get 'gallery'
+    end
   end
   resources :halls, except: [:new, :show]
   resources :types, except: [:new, :show]
