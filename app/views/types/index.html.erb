@@ -51,7 +51,13 @@
       <tbody>
         <% @types.each do |type| %>
           <tr>
-            <td><%= "[#{type.pachi_slot}]#{type.type_name}" %></td>
+          <% if type.pachi_slot == "パチンコ" %>
+            <td>[<span style="color:red">P</span>]<%= type.type_name %></td>
+            <%elsif type.pachi_slot == "スロット"%>
+            <td>[<span style="color:blue">S</span>]<%= type.type_name %></td>
+            <%else%>
+            <td><%= "[他]#{type.type_name}" %></td>
+          <%end%>
             <td><%= link_to '編集', edit_type_path(type), class: 'btn-sm btn-primary' %></td>
             <td><%= link_to '削除', type_path(type), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
           </tr>
