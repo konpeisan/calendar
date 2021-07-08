@@ -15,7 +15,7 @@
 <div class="main-budget">
   <div class="budget">
     <div class="main-data">
-      <p><%= "その他" %></p>
+      <p><%= "その他TOTAL" %></p>
 
       <% if @total.to_i < 0 %>
         <p>収支<span style="color:red"><%= "#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></span></p>

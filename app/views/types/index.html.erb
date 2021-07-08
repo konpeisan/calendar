@@ -60,6 +60,7 @@
           <%end%>
             <td><%= link_to '編集', edit_type_path(type), class: 'btn-sm btn-primary' %></td>
             <td><%= link_to '削除', type_path(type), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
+            <td><%= link_to '解析サイト', "https://www.google.com/search?q=#{type.pachi_slot}#{type.type_name}", target: "_blank" %></td>
           </tr>
         <%end%>
       </tbody>
