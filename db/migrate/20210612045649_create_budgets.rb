@@ -9,6 +9,7 @@ class CreateBudgets < ActiveRecord::Migration[6.0]
       t.text         :memo
       t.integer      :store_id
       t.integer      :type_name_id
+      t.time         :game_time
       t.timestamps
     end
   end

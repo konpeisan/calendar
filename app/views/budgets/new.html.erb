@@ -51,9 +51,9 @@
     </div>
 
     <div class="content">
-      <%= f.label :recobery, "時間" %>
+      <%= f.label :game_time, "遊技時間" %>
       <div class="left-content">
-      <%= f.time_select :recovery, prompt: true %>
+      <%= f.time_select :game_time, ignore_data: true, default: Date.today+0.hour+0.minute %>
       </div>
     </div>
 
