@@ -50,6 +50,13 @@
         </div>
     </div>
 
+    <div class="content">
+      <%= f.label :recobery, "時間" %>
+      <div class="left-content">
+      <%= f.time_select :recovery, prompt: true %>
+      </div>
+    </div>
+
     <p class="content">今日のハイライト画像</p>
     <div class="content">
       <%= f.file_field :image %>
