@@ -57,3 +57,15 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  
+  activerecord:
+    attributes:
+      hall:
+        store: ""
+      type:
+        type_name: ""
+        pachi_slot: ""
+        kind: ""
+      budget:
+        price: ""
+        recovery: ""
