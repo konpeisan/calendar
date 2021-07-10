@@ -24,6 +24,9 @@
 
 		<div class="cp_tabpanel">
 		<%= render "all" %>
+		<% @budgets.each do |budget| %>
+		<%= budget.game_time %>
+		<%end%>
 		</div>
 
 		<div class="cp_tabpanel">

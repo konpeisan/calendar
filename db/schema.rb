@@ -48,15 +48,15 @@ ActiveRecord::Schema.define(version: 2021_07_02_101054) do
   end
 
   create_table "halls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "store"
+    t.string "store", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "type_name"
-    t.string "pachi_slot"
-    t.string "kind"
+    t.string "type_name", null: false
+    t.string "pachi_slot", null: false
+    t.string "kind", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

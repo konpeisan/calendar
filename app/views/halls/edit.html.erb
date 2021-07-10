@@ -7,6 +7,8 @@
   <div class="col-xs-6">
     <%= form_with model: @hall, local: true do |f| %>
 
+    <%= render 'layouts/error_messages', model: f.object %>
+
       <%= f.label :store, 'ホール名' %>
       <br>
       <%= f.text_field :store, class:'form-control' %>

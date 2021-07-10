@@ -4,6 +4,8 @@
   <div class="col-xs-3">
     <%= form_with model: @type, local: true do |f| %>
 
+    <%= render 'layouts/error_messages', model: f.object %>
+
       <%= f.radio_button :pachi_slot, :"パチンコ", id: 'pachinko', checked: true %>
       <%= f.label :pachi_slot, "パチンコ", {value: :pachi_slot, style: "display: inline-block;"} %>
       <%= f.radio_button :pachi_slot, :"スロット", id: 'slot' %>

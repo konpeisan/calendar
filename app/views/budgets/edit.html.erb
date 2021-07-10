@@ -53,7 +53,7 @@
   <div class="content">
     <%= f.label :game_time, "遊技時間" %>
     <div class="left-content">
-    <%= f.time_select :game_time, prompt: true, ignore_data: true %>
+    <%= f.time_select :game_time, ignore_data: true, default: Date.today+0.hour+0.minute %>
     </div>
   </div>
 
