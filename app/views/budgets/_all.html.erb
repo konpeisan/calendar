@@ -23,6 +23,17 @@
 <%end%>
 <% probability = (win/num.to_f*100).floor(2)  %>
 
+<%ji=0%>
+<%hun=0%>
+<% @budgets.each do |budget| %>
+  <%ji += budget.game_time.hour.to_i %>
+  <%hun += budget.game_time.min.to_i %>
+<%end%>
+<% h = hun/60 %>
+<% hours = ji+h %>
+<% mins = hun%60 %>
+
+
 <div class="main-budget">
   <div class="budget">
     <div class="main-data">
@@ -42,12 +53,14 @@
           <ul>
             <li>回数</li>
             <li>勝率</li>
+            <li>遊技時間</li>
           </ul>
         </div>
         <div class="price-data">
           <ul>
             <li><%= "#{num}回" %></li>
             <li><%= "#{probability}% (#{win}勝#{lose}敗#{draw}分)" %></li>
+            <li><%= "#{hours}時間#{mins}分" %></li>
           </ul>
         </div>
       </div>
@@ -56,6 +69,7 @@
           <ul>
             <li>投資</li>
             <li>回収</li>
+            <li>時給</li>
           </ul>
         </div>
         <div class="price-data">
