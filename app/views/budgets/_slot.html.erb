@@ -35,8 +35,6 @@
         </div>
         <div class="price-data">
           <ul>
-            <li><%= "#{@num}回" %></li>
-
             <% Budget.where(type_name_id: @slot).pluck(:total).each do |budget| %>
             <% if budget.to_i > 0 %>
             <% win += 1 %>
@@ -46,7 +44,8 @@
             <% draw += 1 %>
             <%end%>
             <%end%>
-            <li><%= "#{probability = (win/@num.to_f*100).floor(2)}% (#{win}勝#{lose}敗#{draw}分)" %></li>
+            <li><%= "#{@num}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
+            <li><%= "#{probability = (win/@num.to_f*100).floor(2)}%" %></li>
           </ul>
         </div>
       </div>

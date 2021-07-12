@@ -1,4 +1,4 @@
-<%= render "header" %>
+<%= render "layouts/header" %>
 
 <%= month_calendar events: @budgets do |date, budgets| %>
 <%= date.day %>
@@ -38,4 +38,4 @@
 <% end %>
 <% end %>
 
-<%= render "footer" %>
+<%= render "layouts/footer" %>
