@@ -30,14 +30,14 @@
 
   <table class="table table-striped">
     <thead>
-      <tr>
+      <tr style="background-color:#777777">
         <% date_range.slice(0, 7).each do |day| %>
         <% if t('date.abbr_day_names')[day.wday] == "日" %>
           <th><span style="color:red"><%= t('date.abbr_day_names')[day.wday] %></span></th>
           <%elsif t('date.abbr_day_names')[day.wday] == "土"%>
           <th><span style="color:blue"><%= t('date.abbr_day_names')[day.wday] %></span></th>
           <%else%>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th><span style="color:white"><%= t('date.abbr_day_names')[day.wday] %></span></th>
         <% end %>
         <%end%>
       </tr>
@@ -45,8 +45,7 @@
 
     <tbody>
       <% date_range.each_slice(7) do |week| %>
-      <%#  week[0] %>
-        <tr class="a">
+        <tr>
           <% week.each do |day| %>
 	          <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
