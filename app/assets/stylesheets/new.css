@@ -36,11 +36,10 @@ button.btn {
 
 .new {
   background-color: gray;
-  height: 100vh;
-  width: 100vw;
 }
 
 .heading-name {
+  font-size: 30px;
   text-align: center;
   border-bottom: 1px solid red;
   width: 200px;
