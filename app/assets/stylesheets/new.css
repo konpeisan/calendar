@@ -83,15 +83,6 @@ button.btn {
   font-size: 15px;
 }
 
-a.delete-btn {
-  font-size: 15px;
-  background-color:red;
-  color: white;
-}
-a.delete-btn:hover {
-  color: #fff;
-}
-
 a.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);

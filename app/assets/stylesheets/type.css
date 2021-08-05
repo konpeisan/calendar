@@ -10,3 +10,68 @@ input[type="radio"]:checked#slot~div.slot {
 .row {
   display: flex;
 }
+
+.col-xs-3 {
+  margin: 20px 30px;
+}
+
+.col-xs-9 {
+  margin: 20px 30px;
+}
+
+.head-1 {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.line {
+  padding: 10px;
+}
+
+.edit-btn {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 7pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #26e726;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid #26e726;
+  text-decoration: none;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 7pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #d60606;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid #d60606;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.site-btn {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 7pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #000066;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid #000066;
+  text-decoration: none;
+}

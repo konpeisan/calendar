@@ -28,9 +28,9 @@
         <% @halls.each do |hall| %>
           <tr>
             <td><%= hall.store %></td>
-            <td><%= link_to '編集', edit_hall_path(hall), class: 'btn-sm btn-primary' %></td>
-            <td><%= link_to '削除', hall_path(hall), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
-            <td><%= link_to '店舗情報', "https://www.google.com/search?q=#{hall.store}", target: "_blank" %></td>
+            <td><%= link_to '編集', edit_hall_path(hall), class: "edit-btn" %></td>
+            <td><%= link_to '削除', hall_path(hall), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-btn" %></td>
+            <td><%= link_to '店舗情報', "https://www.google.com/search?q=#{hall.store}", target: "_blank", class: "site-btn" %></td>
           </tr>
         <%end%>
       </tbody>
