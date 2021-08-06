@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2021_07_02_101054) do
     t.date "start_time"
     t.string "price", null: false
     t.string "recovery", null: false
-    t.integer "yen_id", null: false
     t.string "total"
     t.text "memo"
     t.integer "store_id"
