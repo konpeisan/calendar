@@ -119,6 +119,6 @@ input[type="radio"]:checked + label {
 
 .tag {
   position: fixed;
-  top: 240px;
+  top: 290px;
   left: 100px;
 }

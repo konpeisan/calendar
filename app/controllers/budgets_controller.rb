@@ -26,6 +26,7 @@ class BudgetsController < ApplicationController
   end
 
   def update
+    @budget.total = @budget.recovery.to_i - @budget.price.to_i
     if @budget.update(budget_params)
       redirect_to root_path
     else
@@ -50,7 +51,7 @@ class BudgetsController < ApplicationController
 
   private
   def budget_params
-    params.require(:budget).permit(:start_time,:price,:recovery,:total,:memo,:image,:store_id,:type_name_id,:game_time)
+    params.require(:budget).permit(:start_time,:price,:recovery,:total,:memo,:store_id,:type_name_id,:game_time)
   end
 
   def set_budget
