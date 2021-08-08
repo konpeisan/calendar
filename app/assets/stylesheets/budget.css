@@ -43,25 +43,22 @@
 .main-data {
   display: flex;
   justify-content: space-between;
-  margin: 0 20px 0 20px;
-  font-size: 20px;
+  margin: 10px 20px 40px 20px;
+  font-size: 25px;
 }
 
 .data {
   display: flex;
+  justify-content: space-around;
 }
 
 .toshi-data {
   display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 10px 10px 10px;
 }
 
-.win-date {
-  display: flex;
-  justify-content: start;
-}
-
-.price-data {
-  margin-right: 10px;
-  display: flex;
-  justify-content: end;
+ul.list li{
+  margin-top: 10px;
 }

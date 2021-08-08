@@ -28,13 +28,13 @@
     <div class="data">
       <div class="toshi-data">
         <div class="win-data">
-          <ul>
+          <ul class="list">
             <li>回数</li>
             <li>勝率</li>
           </ul>
         </div>
         <div class="price-data">
-          <ul>
+          <ul class="list">
             <% Budget.where(type_name_id: @rt).pluck(:total).each do |budget| %>
             <% if budget.to_i > 0 %>
             <% win += 1 %>
@@ -51,13 +51,13 @@
       </div>
       <div class="toshi-data">
         <div class="win-data">
-          <ul>
+          <ul class="list">
             <li>投資</li>
             <li>回収</li>
           </ul>
         </div>
         <div class="price-data">
-          <ul>
+          <ul class="list">
             <li><%= "#{number_to_currency(@price, strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery, strip_insignificant_zeros: true)}" %></li>
           </ul>
