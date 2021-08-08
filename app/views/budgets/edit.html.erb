@@ -30,16 +30,14 @@
   <div class="content">
     <%= f.label :price %>
     <div class="left-content">
-    <%= f.text_field :price, id: "price1" %>
-    <%= f.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    <%= f.text_field :price, id: "price1" %>円
     </div>
   </div>
 
   <div class="content">
     <%= f.label :recobery %>
     <div class="left-content">
-    <%= f.text_field :recovery, id: "price2" %>
-    <%= f.collection_select(:yen_id, Yen.all, :id, :name, {}, {class:"yen-select"}) %>
+    <%= f.text_field :recovery, id: "price2" %>円
     </div>
   </div>
 
@@ -67,7 +65,7 @@
   <div class="content">
   <div class="btn-content">
     <%= f.submit "編集", class:"btn" %>
-    <%= link_to "削除", budget_path(@budget.id), method: :delete, class: "btn delete-btn btn--circle btn--circle-a btn--shadow" %>
+    <%= link_to "削除", budget_path(@budget.id), method: :delete, class: "delete-btn" %>
     <%= link_to '戻る', :back %>
   </div>
   </div>

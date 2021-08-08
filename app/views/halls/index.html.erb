@@ -20,13 +20,13 @@
     <table class="table">
       <thead>
         <tr>
-          <th>ホール名</th>
+          <th class="head-1">ホール名</th>
         </tr>
       </thead>
 
       <tbody>
         <% @halls.each do |hall| %>
-          <tr>
+          <tr height=37>
             <td><%= hall.store %></td>
             <td><%= link_to '編集', edit_hall_path(hall), class: "edit-btn" %></td>
             <td><%= link_to '削除', hall_path(hall), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-btn" %></td>

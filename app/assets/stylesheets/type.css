@@ -34,7 +34,7 @@ input[type="radio"]:checked#slot~div.slot {
   font-size     : 7pt;
   text-align    : center;
   cursor        : pointer;
-  padding       : 12px 12px;
+  padding       : 10px;
   background    : #26e726;
   color         : #ffffff;
   line-height   : 1em;
@@ -51,7 +51,7 @@ input[type="radio"]:checked#slot~div.slot {
   font-size     : 7pt;
   text-align    : center;
   cursor        : pointer;
-  padding       : 12px 12px;
+  padding       : 10px;
   background    : #d60606;
   color         : #ffffff;
   line-height   : 1em;
@@ -67,7 +67,7 @@ input[type="radio"]:checked#slot~div.slot {
   font-size     : 7pt;
   text-align    : center;
   cursor        : pointer;
-  padding       : 12px 12px;
+  padding       : 10px;
   background    : #000066;
   color         : #ffffff;
   line-height   : 1em;
@@ -85,7 +85,7 @@ input[type="radio"]:checked + label {
   color: #ffffff;
 }
 
-.label:hover {
+.label:hover,.label-1:hover {
   background-color: #E2EDF9;
 }
 
