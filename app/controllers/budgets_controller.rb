@@ -13,7 +13,7 @@ class BudgetsController < ApplicationController
 
   def create
     @budget = Budget.new(budget_params)
-    @budget.total = @budget.recovery.to_i - @budget.price.to_i
+    keisan
     if @budget.save
       redirect_to root_path
     else
@@ -26,8 +26,9 @@ class BudgetsController < ApplicationController
   end
 
   def update
-    @budget.total = @budget.recovery.to_i - @budget.price.to_i
     if @budget.update(budget_params)
+      keisan
+      @budget.update(budget_params)
       redirect_to root_path
     else
       render :edit
@@ -45,10 +46,6 @@ class BudgetsController < ApplicationController
     @types = Type.all
   end
 
-  def gallery
-    @budgets = Budget.all
-  end
-
   private
   def budget_params
     params.require(:budget).permit(:start_time,:price,:recovery,:total,:memo,:store_id,:type_name_id,:game_time)
@@ -56,5 +53,9 @@ class BudgetsController < ApplicationController
 
   def set_budget
     @budget = Budget.find(params[:id])
+  end
+
+  def keisan
+    @budget.total = @budget.recovery.to_i - @budget.price.to_i
   end
 end
