@@ -2,6 +2,8 @@
 <% @price = Budget.group("YEAR(start_time)").sum(:price) %>
 <% @recovery = Budget.group("YEAR(start_time)").sum(:recovery) %>
 <% @num = Budget.group("YEAR(start_time)").count %>
+<% @h = Budget.group("YEAR(start_time)").sum(:game_hour) %>
+<% @m = Budget.group("YEAR(start_time)").sum(:game_minute) %>
 <% @year = @num.keys %>
 
 
@@ -49,6 +51,7 @@
             <%end%>
             <li><%= "#{@num[year]}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
             <li><%= "#{probability = (win/@num[year].to_f*100).floor(2)}%" %></li>
+            <li><%= "#{@hour = @h[year]+@m[year]/60}時間#{@m[year]%60}分" %></li>
           </ul>
         </div>
       </div>
@@ -64,6 +67,7 @@
           <ul class="list">
             <li><%= "#{number_to_currency(@price[year], strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery[year], strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total[year].to_i/@hour, strip_insignificant_zeros: true)}" %></li>
           </ul>
         </div>
       </div>

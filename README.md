@@ -25,13 +25,6 @@ Things you may want to cover:
 
 # テーブル設計
 
-## users テーブル
-
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| username           | string | null: false |
-| encrypted_password | string | null: false |
-
 ### Association
 - has_many :budgets
 - has_many :halls
@@ -48,6 +41,8 @@ Things you may want to cover:
 | memo        | text     |             |
 | store_id    | integer  |             |
 | type_name_id| integer  |             |
+| game_hour   | integer  |             |
+| game_minute | integer  |             |
 
 ### Association
 - belongs_to :user
