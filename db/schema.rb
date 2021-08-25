@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_101054) do
     t.text "memo"
     t.integer "store_id"
     t.integer "type_name_id"
-    t.integer "game_time"
+    t.integer "game_hour"
+    t.integer "game_minute"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

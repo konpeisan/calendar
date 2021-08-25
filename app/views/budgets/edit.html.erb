@@ -5,7 +5,7 @@
 <%= form_with(model: @budget, local: true) do |f| %>
 
   <div class="content">
-    <%= f.label :start_time %>
+    <%= f.label :start_time, "日付" %>
     <div class="left-content">
     <%= f.date_select :start_time %>
     </div>
@@ -28,14 +28,14 @@
   </div>
 
   <div class="content">
-    <%= f.label :price %>
+    <%= f.label :price, "投資" %>
     <div class="left-content">
     <%= f.text_field :price, id: "price1" %>円
     </div>
   </div>
 
   <div class="content">
-    <%= f.label :recobery %>
+    <%= f.label :recobery, "回収" %>
     <div class="left-content">
     <%= f.text_field :recovery, id: "price2" %>円
     </div>
@@ -49,10 +49,9 @@
   </div>
 
   <div class="content">
-    <%= f.label :game_time, "遊技時間" %>
-    <div class="left-content">
-    <%= f.time_select :game_time, ignore_data: true, default: Date.today+0.hour+0.minute %>
-    </div>
+    <%= f.label :game_hour, "遊技時間" %>
+    <%= f.select :game_hour, options_for_select((0..23).to_a) %>:
+    <%= f.select :game_minute, options_for_select((0..59).to_a) %>
   </div>
 
   <div class="content">
