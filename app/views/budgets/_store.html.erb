@@ -2,6 +2,8 @@
 <% @price = Budget.group(:store_id).sum(:price) %>
 <% @recovery = Budget.group(:store_id).sum(:recovery) %>
 <% @num = Budget.group(:store_id).count %>
+<% @h = Budget.group(:store_id).sum(:game_hour) %>
+<% @m = Budget.group(:store_id).sum(:game_minute) %>
 
 
 <% @halls.each do |hall| %>
@@ -32,6 +34,7 @@
           <ul class="list">
             <li>回数</li>
             <li>勝率</li>
+            <li>遊技時間</li>
           </ul>
         </div>
         <div class="price-data">
@@ -47,6 +50,7 @@
             <%end%>
             <li><%= "#{@num[hall.id]}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
             <li><%= "#{probability = (win/@num[hall.id].to_f*100).floor(2)}%" %></li>
+            <li><%= "#{@hour = @h[hall.id]+@m[hall.id]/60}時間#{@m[hall.id]%60}分" %></li>
           </ul>
         </div>
       </div>
@@ -55,12 +59,14 @@
           <ul class="list">
             <li>投資</li>
             <li>回収</li>
+            <li>時給</li>
           </ul>
         </div>
         <div class="price-data">
           <ul class="list">
             <li><%= "#{number_to_currency(@price[hall.id], strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery[hall.id], strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total[hall.id].to_i/@hour, strip_insignificant_zeros: true)}" %></li>
           </ul>
         </div>
       </div>
