@@ -3,6 +3,8 @@
 <% @price = Budget.where(type_name_id: @other).sum(:price) %>
 <% @recovery = Budget.where(type_name_id: @other).sum(:recovery) %>
 <% @num = Budget.where(type_name_id: @other).count %>
+<% @hour = Budget.where(type_name_id: @other).sum(:game_hour) %>
+<% @minute = Budget.where(type_name_id: @other).sum(:game_minute) %>
 
 
 <% win = 0 %>
@@ -31,6 +33,7 @@
           <ul class="list">
             <li>回数</li>
             <li>勝率</li>
+            <li>遊技時間</li>
           </ul>
         </div>
         <div class="price-data">
@@ -54,6 +57,7 @@
           <ul class="list">
             <li>投資</li>
             <li>回収</li>
+            <li>時給</li>
           </ul>
         </div>
         <div class="price-data">

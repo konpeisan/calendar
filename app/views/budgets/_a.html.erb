@@ -3,6 +3,8 @@
 <% @price = Budget.where(type_name_id: @a).sum(:price) %>
 <% @recovery = Budget.where(type_name_id: @a).sum(:recovery) %>
 <% @num = Budget.where(type_name_id: @a).count %>
+<% @hour = Budget.where(type_name_id: @a).sum(:game_hour) %>
+<% @minute = Budget.where(type_name_id: @a).sum(:game_minute) %>
 
 
 <% win = 0 %>
@@ -31,6 +33,7 @@
           <ul class="list">
             <li>回数</li>
             <li>勝率</li>
+            <li>遊技時間</li>
           </ul>
         </div>
         <div class="price-data">
@@ -46,6 +49,7 @@
             <%end%>
             <li><%= "#{@num}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
             <li><%= "#{probability = (win/@num.to_f*100).floor(2)}%" %></li>
+            <li><%= "#{@h = @hour+@minute/60}時間#{@minute%60}分" %></li>
           </ul>
         </div>
       </div>
@@ -54,12 +58,14 @@
           <ul class="list">
             <li>投資</li>
             <li>回収</li>
+            <li>時給</li>
           </ul>
         </div>
         <div class="price-data">
           <ul class="list">
             <li><%= "#{number_to_currency(@price, strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery, strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total.to_i/@h, strip_insignificant_zeros: true)}" %></li>
           </ul>
         </div>
       </div>
