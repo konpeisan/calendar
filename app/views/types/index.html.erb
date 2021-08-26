@@ -11,8 +11,6 @@
       <%= f.label :pachi_slot, "パチンコ", {for: "pachinko",class: "label", style: "display: inline-block;"} %>
       <%= f.radio_button :pachi_slot, :"スロット", id: 'slot' %>
       <%= f.label :pachi_slot, "スロット", {for: "slot",class: "label", style: "display: inline-block;"} %>
-      <%= f.radio_button :pachi_slot, :"その他" %>
-      <%= f.label :pachi_slot, "その他", {value: "その他",class: "label", style: "display: inline-block;"} %>
       <br>
       <div class="pachinko">
       <%= f.radio_button :kind, :"ミドル" %>
@@ -44,6 +42,8 @@
       <%= f.text_field :type_name, class:'form-control' %>
       <br>
       <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
+      <br>
+      <%= link_to '戻る', :back %>
       </div>
     <%end%>
   </div>
