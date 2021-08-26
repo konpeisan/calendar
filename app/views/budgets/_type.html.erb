@@ -2,8 +2,8 @@
 <% @price = Budget.group(:type_name_id).sum(:price) %>
 <% @recovery = Budget.group(:type_name_id).sum(:recovery) %>
 <% @num = Budget.group(:type_name_id).count %>
-<% @h = Budget.group(:type_name_id).sum(:game_hour) %>
-<% @m = Budget.group(:type_name_id).sum(:game_minute) %>
+<% @hour = Budget.group(:type_name_id).sum(:game_hour) %>
+<% @minute = Budget.group(:type_name_id).sum(:game_minute) %>
 
 
 <% @types.each do |type| %>
@@ -49,7 +49,7 @@
             <%end%>
             <li><%= "#{@num[type.id]}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
             <li><%= "#{probability = (win/@num[type.id].to_f*100).floor(2)}%" %></li>
-            <li><%= "#{@hour = @h[type.id]+@m[type.id]/60}時間#{@m[type.id]%60}分" %></li>
+            <li><%= "#{@h = @hour[type.id]+@minute[type.id]/60}時間#{@minute[type.id]%60}分" %></li>
           </ul>
         </div>
       </div>
@@ -65,7 +65,7 @@
           <ul class="list">
             <li><%= "#{number_to_currency(@price[type.id], strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery[type.id], strip_insignificant_zeros: true)}" %></li>
-            <li><%= "#{number_to_currency(@total[type.id].to_i/@hour, strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total[type.id].to_i/@h, strip_insignificant_zeros: true)}" %></li>
           </ul>
         </div>
       </div>

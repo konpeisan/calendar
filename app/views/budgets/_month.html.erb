@@ -2,8 +2,8 @@
 <% @price = Budget.group("YEAR(start_time)").group("MONTH(start_time)").sum(:price) %>
 <% @recovery = Budget.group("YEAR(start_time)").group("MONTH(start_time)").sum(:recovery) %>
 <% @num = Budget.group("YEAR(start_time)").group("MONTH(start_time)").count %>
-<% @h = Budget.group("YEAR(start_time)").group("MONTH(start_time)").sum(:game_hour) %>
-<% @m = Budget.group("YEAR(start_time)").group("MONTH(start_time)").sum(:game_minute) %>
+<% @hour = Budget.group("YEAR(start_time)").group("MONTH(start_time)").sum(:game_hour) %>
+<% @minute = Budget.group("YEAR(start_time)").group("MONTH(start_time)").sum(:game_minute) %>
 <% @month = @num.keys %>
 
 
@@ -50,7 +50,7 @@
             <%end%>
             <li><%= "#{@num[[year,month]]}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
             <li><%= "#{probability = (win/@num[[year,month]].to_f*100).floor(2)}%" %></li>
-            <li><%= "#{@hour = @h[[year,month]]+@m[[year,month]]/60}時間#{@m[[year,month]]%60}分" %></li>
+            <li><%= "#{@h = @hour[[year,month]]+@minute[[year,month]]/60}時間#{@minute[[year,month]]%60}分" %></li>
           </ul>
         </div>
       </div>
@@ -66,7 +66,7 @@
           <ul class="list">
             <li><%= "#{number_to_currency(@price[[year,month]], strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery[[year,month]], strip_insignificant_zeros: true)}" %></li>
-            <li><%= "#{number_to_currency(@total[[year,month]].to_i/@hour, strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total[[year,month]].to_i/@h, strip_insignificant_zeros: true)}" %></li>
           </ul>
         </div>
       </div>
