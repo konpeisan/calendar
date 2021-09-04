@@ -59,9 +59,8 @@ Things you may want to cover:
 | Column      | Type     | Options     |
 | ----------- | -------- | ----------- |
 | start_time  | datetime |             |
-| price       | string   | null: false |
-| recovery    | string   | null: false |
-| yen_id      | integer  | null: false |
+| price       | string   |             |
+| recovery    | string   |             |
 | memo        | text     |             |
 | store_id    | integer  |             |
 | type_name_id| integer  |             |
