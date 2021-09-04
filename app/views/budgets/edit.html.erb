@@ -50,8 +50,8 @@
 
   <div class="content">
     <%= f.label :game_hour, "遊技時間" %>
-    <%= f.select :game_hour, options_for_select((0..23).to_a) %>:
-    <%= f.select :game_minute, options_for_select((0..59).to_a) %>
+    <%= f.select :game_hour, options_for_select((0..23).to_a, selected: @budget.game_hour) %> :
+    <%= f.select :game_minute, options_for_select((0..59).to_a, selected: @budget.game_minute) %>
   </div>
 
   <div class="content">
