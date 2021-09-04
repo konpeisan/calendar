@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :type do
-    type_name      {}
-    pachi_slot     {}
-    kind           {}
+    type_name      {Faker::Name.initials(number: 5)}
+    pachi_slot     {"パチンコ"}
+    kind           {"ミドル"}
   end
 end
