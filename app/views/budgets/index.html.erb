@@ -1,39 +1,39 @@
 <%= render "layouts/header" %>
 
 <%= month_calendar events: @budgets do |date, budgets| %>
-<%= date.day %>
+  <%= date.day %>
 
-<div class="box">
-<ul class="hidden_box">
-  <li><%= link_to "結果作成", new_budget_path(date) %></li>
+  <div class="box">
+    <ul class="hidden_box">
+      <li><%= link_to "結果作成", new_budget_path(date) %></li>
 
-  <% if budgets.present? %>
-  <li><a href="#">結果詳細</a>
-<ul>
+      <% if budgets.present? %>
+      <li><a href="#">結果詳細</a>
+      <ul>
+        <% budgets.each do |budget| %>
+          <li>
+            <% if budget.total.to_i > 0 %>
+              <%= link_to "+#{budget.total}", edit_budget_path(budget.id) %>
+            <% else %>
+              <%= link_to budget.total, edit_budget_path(budget.id) %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+      </ul>
+      </li>
+    </ul>
+  </div>
+
+  <% @sum = 0 %>
   <% budgets.each do |budget| %>
-    <li>
-    <% if budget.total.to_i > 0 %>
-      <%= link_to "+#{budget.total}", edit_budget_path(budget.id) %>
-    <% else %>
-      <%= link_to budget.total, edit_budget_path(budget.id) %>
-    <% end %>
-    </li>
-    <% end %>
-    <% end %>
-  </ul>
-  </li>
-</ul>
-</div>
-
-<% @sum = 0 %>
-<% budgets.each do |budget| %>
-<% @sum += budget.total.to_i %>
-<% end %>
-<% if @sum.to_i > 0 %>
-<div><span style="color:blue">+<%= @sum %></span></div>
-<% elsif @sum.to_i == 0 && budgets.present? %>
-<div><span style="color:black"><%= @sum %></span></div>
-<% elsif @sum.to_i < 0 %>
-<div><span style="color:red"><%= @sum %></span></div>
-<% end %>
+    <% @sum += budget.total.to_i %>
+  <% end %>
+  <% if @sum.to_i > 0 %>
+    <div><span style="color:blue">+<%= @sum %></span></div>
+  <% elsif @sum.to_i == 0 && budgets.present? %>
+    <div><span style="color:black"><%= @sum %></span></div>
+  <% elsif @sum.to_i < 0 %>
+    <div><span style="color:red"><%= @sum %></span></div>
+  <% end %>
 <% end %>

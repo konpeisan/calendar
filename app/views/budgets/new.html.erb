@@ -4,7 +4,7 @@
   <div class="contents">
   <%= form_with(model: @budget, local: true) do |f| %>
 
-  <%= render 'layouts/error_messages', model: f.object %>
+    <%= render 'layouts/error_messages', model: f.object %>
 
     <div class="content">
       <%= f.label :start_time, "日付"%>

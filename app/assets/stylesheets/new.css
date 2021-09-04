@@ -33,11 +33,6 @@ button.btn {
 
 
 
-
-.new {
-  background-color: gray;
-}
-
 .heading-name {
   font-size: 30px;
   text-align: center;
@@ -54,7 +49,7 @@ button.btn {
 }
 
 .content {
-  color: aliceblue;
+  color: rgb(59, 55, 58);
   font-size: 18px;
   margin: 0 0 16px 70px;
 }
