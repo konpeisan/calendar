@@ -1,10 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "Halls", type: :request do
-  describe "GET /halls" do
-    it "works! (now write some real specs)" do
-      get halls_index_path
-      expect(response).to have_http_status(200)
+describe HallsController, type: :request do
+  before do
+    @hall = FactoryBot.create(:hall)
+  end
+
+  describe "GET #index" do
+    it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do 
+      get halls_path
+      expect(response.status).to eq 200
+    end
+    it 'indexアクションにリクエストするとレスポンスに登録済みのホールが存在する' do 
+      get halls_path
+      expect(response.body).to include(@hall.store)
     end
   end
 end
