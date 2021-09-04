@@ -1,10 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "Types", type: :request do
-  describe "GET /types" do
-    it "works! (now write some real specs)" do
-      get types_index_path
-      expect(response).to have_http_status(200)
+describe TypesController, type: :request do
+  before do
+    @type = FactoryBot.create(:type)
+  end
+
+  describe "GET #index" do
+    it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do 
+      get types_path
+      expect(response.status).to eq 200
+    end
+    it 'indexアクションにリクエストするとレスポンスに登録済みの機種が存在する' do 
+      get types_path
+      expect(response.body).to include(@type.type_name)
     end
   end
 end
