@@ -14,7 +14,7 @@ class BudgetsController < ApplicationController
   def create
     @budget = Budget.new(budget_params)
     keisan
-    if @budget.save
+    if @budget.save || initial_entry
       redirect_to root_path
     else
       render :new
@@ -57,5 +57,12 @@ class BudgetsController < ApplicationController
 
   def keisan
     @budget.total = @budget.recovery.to_i - @budget.price.to_i
+  end
+
+  def initial_entry
+    @budget.price = 0
+    @budget.recovery = 0
+    @budget.total = 0
+    @budget.save
   end
 end

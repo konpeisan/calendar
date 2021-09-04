@@ -66,7 +66,7 @@
           <ul class="list">
             <li><%= "#{number_to_currency(@price, strip_insignificant_zeros: true)}"  %></li>
             <li><%= "#{number_to_currency(@recovery, strip_insignificant_zeros: true)}" %></li>
-            <li><%= "#{number_to_currency(@total.to_i/@h, strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total.to_i/@h, strip_insignificant_zeros: true)}" rescue "0円" %></li>
           </ul>
         </div>
       </div>

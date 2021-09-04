@@ -27,7 +27,7 @@
 <% m = Budget.sum(:game_minute) %>
 <% min = m%60 %>
 <% hour = h + m/60 %>
-<% work_money = total/hour %>
+<% work_money = total/hour rescue 0 %>
 
 
 <div class="main-budget">
