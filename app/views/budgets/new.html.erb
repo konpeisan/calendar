@@ -9,7 +9,7 @@
     <div class="content">
       <%= f.label :start_time, "日付"%>
       <div class="left-content">
-      <%= f.date_select :start_time, default: {year: @day_params[:year],month: @day_params[:mon],day: @day_params[:mday]} %>
+      <%= f.date_select :start_time, default: {year: @day[:year],month: @day[:mon],day: @day[:mday]} %>
       </div>
     </div>
 

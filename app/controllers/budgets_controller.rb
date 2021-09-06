@@ -7,8 +7,8 @@ class BudgetsController < ApplicationController
 
   def new
     @budget = Budget.new
-    @day = params[:format]
-    @day_params = Date._strptime(@day)
+    @day_params = params[:format]
+    @day = Date._strptime(@day_params)
   end
 
   def create
