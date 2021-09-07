@@ -69,17 +69,17 @@ RSpec.describe "機種削除", type: :system do
 
   context '機種を削除できる時' do
     it '登録した機種名を削除できる' do
-      #ホール作成ページに遷移する
+      #機種作成ページに遷移する
       visit types_path
-      #作成されたホール名に削除へのリンクがあることを確認する
+      #作成された機種名に削除へのリンクがあることを確認する
       expect(page).to have_link '削除', href: type_path(@type1)
       #削除ボタンを押すとダイアログが出てくる
       page.accept_confirm do
         click_on '削除'
       end
-      #ホール作成ページに遷移したことを確認する
+      #機種作成ページに遷移したことを確認する
       expect(current_path).to eq(types_path)
-      #ホール作成ページには先ほどのホール１が存在しないことを確認する
+      #機種作成ページには先ほどの機種１が存在しないことを確認する
       expect(page).to have_no_content("#{@type1.type_name}")
     end
   end

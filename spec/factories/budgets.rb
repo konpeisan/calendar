@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :budget do
-    start_time      {Faker::Date.backward}
+    start_time      {""}
     price           {"20000"}
     recovery        {"10000"}
     total           {recovery.to_i-price.to_i}
