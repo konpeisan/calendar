@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "ホール登録", type: :system do
+  
   before do
     @budget = FactoryBot.build(:budget)
     @hall_store = Faker::Name.initials(number: 5)
@@ -55,6 +56,7 @@ RSpec.describe "ホール編集", type: :system do
 end
 
 RSpec.describe 'ホール削除', type: :system do
+
   before do
     @hall1 = FactoryBot.create(:hall)
   end
