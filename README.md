@@ -20,7 +20,10 @@
 
 ## デモ
 ---
-トップページ
+トップページ(新規登録画面)
+![]()
+
+カレンダーページ(ログイン後ページ)
 ![](https://i.gyazo.com/5374795706a2831596b5bf9bcf8db80c.gif)
 
 分析一覧ページ
@@ -60,6 +63,15 @@
 
 # DB設計
 
+## users テーブル
+
+| Column             | Type    | Option      |
+| ------------------ | ------- | ----------- |
+| name               | string  | null: false |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+
+
 ### Association
 - has_many :budgets
 - has_many :halls
@@ -67,19 +79,21 @@
 
 ## budgets テーブル
 
-| Column      | Type     | Options     |
-| ----------- | -------- | ----------- |
-| start_time  | datetime | null: false |
-| price       | string   | null: false |
-| recovery    | string   | null: false |
-| total       | string   | null: false |
-| memo        | text     |             |
-| store_id    | integer  |             |
-| type_name_id| integer  |             |
-| game_hour   | integer  |             |
-| game_minute | integer  |             |
+| Column       | Type     | Options     |
+| ------------ | -------- | ----------- |
+| start_time   | datetime | null: false |
+| price        | string   | null: false |
+| recovery     | string   | null: false |
+| total        | string   | null: false |
+| memo         | text     |             |
+| store_id     | integer  |             |
+| type_name_id | integer  |             |
+| game_hour    | integer  |             |
+| game_minute  | integer  |             |
+| user_id      | integer  |             |
 
 ### Association
+- belongs_to :user
 - belongs_to :hall
 - belongs_to :type
 
@@ -88,9 +102,11 @@
 | Column       | Type       | Options     |
 | ------------ | ---------- | ----------- |
 | store_id     | string     | null: false |
+| user_id      | integer    |             |
 
 ### Association
-- has_many :budget
+- has_many   :budgets
+- belongs_to :user
 
 ## types テーブル
 
@@ -99,6 +115,8 @@
 | type_name    | string     | null: false |
 | pachi_slot   | string     | null: false |
 | kind         | string     | null: false |
+| user_id      | integer    |             |
 
 ### Association
-- has_many :budgets
+- has_many   :budgets
+- belongs_to :user

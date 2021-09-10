@@ -22,8 +22,8 @@
     </span>
 
     <span class="root">
-    <%= current_user.name %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <span class="user_name"><%= current_user.name %></span>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log_out" %>
     </span>
   </div>
 

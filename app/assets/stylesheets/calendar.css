@@ -92,3 +92,17 @@
     border: 5px solid transparent;
     border-left-color: #454e08;
 }
+
+.log_out {
+  border: 1px solid rgb(236, 74, 74);
+  text-decoration: none;
+  padding: 5px 3px;
+  margin-left: 20px;
+  background-color: rgb(236, 74, 74);
+  color: white;
+}
+
+.user_name {
+  font-size: 20px;
+  font-family: "Ravi Prakash", cursive;
+}

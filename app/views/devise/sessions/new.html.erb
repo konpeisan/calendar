@@ -1,26 +1,26 @@
-<h2>Log in</h2>
+<div class="login">
+  <fieldset>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+    <h2>Log in</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Username", class: "field" %>
+        
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "field" %>
+        
+        <% if devise_mapping.rememberable? %>
+        <div class="">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+        <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+        <div class="actions">
+          <%= f.submit "Enter", class: "action" %>
+        </div>
+      <% end %>
+  </fieldset>
+</div>
 
 <%= render "devise/shared/links" %>
