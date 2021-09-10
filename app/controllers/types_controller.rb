@@ -3,7 +3,7 @@ class TypesController < ApplicationController
 
   def index
     @type = Type.new
-    @types = Type.all
+    @types = Type.where(id: current_user.id)
   end
 
   def create
@@ -39,6 +39,6 @@ class TypesController < ApplicationController
   end
 
   def type_params
-    params.require(:type).permit(:type_name,:pachi_slot,:kind)
+    params.require(:type).permit(:type_name,:pachi_slot,:kind).merge(user_id: current_user.id)
   end
 end

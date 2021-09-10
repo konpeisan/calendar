@@ -5,7 +5,7 @@
 <% lose = 0 %>
 <% draw = 0 %>
 <% probability = 0 %>
-<% num = Budget.count.to_i %>
+<% num = Budget.where(id: current_user.id).count.to_i %>
 
 <% @budgets.each do |budget| %>
 <% total += budget.total.to_i %>
@@ -23,8 +23,8 @@
 <%end%>
 <% probability = (win/num.to_f*100).floor(2)  %>
 
-<% h = Budget.sum(:game_hour) %>
-<% m = Budget.sum(:game_minute) %>
+<% h = Budget.where(id: current_user.id).sum(:game_hour) %>
+<% m = Budget.where(id: current_user.id).sum(:game_minute) %>
 <% min = m%60 %>
 <% hour = h + m/60 %>
 <% work_money = total/hour rescue 0 %>

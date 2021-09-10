@@ -72,6 +72,7 @@
 | start_time  | datetime | null: false |
 | price       | string   | null: false |
 | recovery    | string   | null: false |
+| total       | string   | null: false |
 | memo        | text     |             |
 | store_id    | integer  |             |
 | type_name_id| integer  |             |

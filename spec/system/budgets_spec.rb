@@ -13,7 +13,7 @@ RSpec.describe "収支登録", type: :system do
       #カレンダーのマスから結果作成のボタンがあることを確認する
       first('tbody tr').hover
       #結果作成ページに移動する
-      visit new_budget_path
+      #visit new_budget_path
       #収支情報を入力する
       #fill_in '日付', with: @budget.start_time
       #fill_in 'ホール名', with: @budget.store_id

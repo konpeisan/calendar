@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: "budgets#index"
+  devise_for :users
+  devise_scope :user do
+    root to: "devise/registrations#new"
+  end
   resources :budgets do
     collection do
       get 'analysis'
@@ -7,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :halls, except: [:new, :show]
   resources :types, except: [:new, :show]
+  resources :users, only: [:new, :edit, :update]
 end

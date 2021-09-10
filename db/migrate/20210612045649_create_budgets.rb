@@ -10,6 +10,7 @@ class CreateBudgets < ActiveRecord::Migration[6.0]
       t.integer      :type_name_id
       t.integer      :game_hour
       t.integer      :game_minute
+      t.integer      :user_id
       t.timestamps
     end
   end

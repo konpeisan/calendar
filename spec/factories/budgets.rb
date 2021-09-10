@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :budget do
-    start_time      {""}
+    start_time      {Date.today.beginning_of_month.to_s}
     price           {"20000"}
     recovery        {"10000"}
     total           {recovery.to_i-price.to_i}

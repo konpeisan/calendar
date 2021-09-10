@@ -1,6 +1,6 @@
 <header>
   <div class="heading">
-    <h1><%= link_to 'パチンコ・スロット収支表', root_path, class: 'title' %><h1>
+    <h1><%= link_to 'パチンコ・スロット収支表', budgets_path, class: 'title' %><h1>
   </div>
   <div class='nav'>
     <ul class='lists-left'>
@@ -8,7 +8,7 @@
       <li><%= link_to 'カレンダー', root_path, class: "main" %></li>
       <li><%= link_to 'ホール名', halls_path, class: "hall-list" %></li>
       <li><%= link_to '機種名', types_path, class: "type-list" %></li>
-    <% elsif current_page?(root_path) %>
+    <% elsif current_page?(budgets_path) %>
       <li><%= link_to '分析', analysis_budgets_path, class: "main" %></li>
       <li><%= link_to 'ホール名', halls_path, class: "hall-list" %></li>
       <li><%= link_to '機種名', types_path, class: "type-list" %></li>

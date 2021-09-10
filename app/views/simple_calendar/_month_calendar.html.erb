@@ -21,11 +21,10 @@
     <% end %>
     </span>
 
-    <% unless Date.today.year == start_date.year && Date.today.month == start_date.month %>
     <span class="root">
-    <%= link_to "今日", root_path %>
+    <%= current_user.name %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     </span>
-    <% end %>
   </div>
 
   <table class="table table-striped">

@@ -2,7 +2,7 @@ class BudgetsController < ApplicationController
   before_action :set_budget, only: [:edit,:update,:destroy]
 
   def index
-    @budgets = Budget.all
+    @budgets = Budget.where(id: current_user.id)
   end
 
   def new
@@ -41,14 +41,14 @@ class BudgetsController < ApplicationController
   end
 
   def analysis
-    @budgets = Budget.all
-    @halls = Hall.all
-    @types = Type.all
+    @budgets = Budget.where(id: current_user.id)
+    @halls = Hall.where(id: current_user.id)
+    @types = Type.where(id: current_user.id)
   end
 
   private
   def budget_params
-    params.require(:budget).permit(:start_time,:price,:recovery,:total,:memo,:store_id,:type_name_id,:game_hour,:game_minute)
+    params.require(:budget).permit(:start_time,:price,:recovery,:total,:memo,:store_id,:type_name_id,:game_hour,:game_minute).merge(user_id: current_user.id)
   end
 
   def set_budget

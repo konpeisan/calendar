@@ -3,7 +3,7 @@ class HallsController < ApplicationController
 
   def index
     @hall = Hall.new
-    @halls = Hall.all
+    @halls = Hall.where(id: current_user.id)
   end
 
   def create
@@ -34,11 +34,11 @@ class HallsController < ApplicationController
 
   private
 
-    def set_hall
-      @hall = Hall.find(params[:id])
-    end
+  def set_hall
+    @hall = Hall.find(params[:id])
+  end
 
-    def hall_params
-      params.require(:hall).permit(:store)
-    end
+  def hall_params
+    params.require(:hall).permit(:store).merge(user_id: current_user.id)
+  end
 end
