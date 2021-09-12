@@ -1,5 +1,6 @@
 class HallsController < ApplicationController
   before_action :set_hall, only: [:edit, :update, :destroy]
+  before_action :move_to_index, except: [:index]
 
   def index
     @hall = Hall.new
@@ -40,5 +41,12 @@ class HallsController < ApplicationController
 
   def hall_params
     params.require(:hall).permit(:store).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @hall = Hall.find(params[:id])
+    unless user_signed_in? && current_user == @hall.user
+      redirect_to action: :index
+    end
   end
 end
