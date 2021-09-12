@@ -22,7 +22,7 @@
     </span>
 
     <span class="root">
-    <span class="user_name"><%= current_user.name %></span>
+    <span class="user_name"><%= link_to current_user.name, edit_user_registration_path %></span>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log_out" %>
     </span>
   </div>

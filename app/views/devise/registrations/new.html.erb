@@ -10,12 +10,12 @@
 
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field", placeholder: "Email" %>
 
-        <%= f.password_field :password, autocomplete: "new-password", class: "field", placeholder: "Password(6 characters minimum) " %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "field", placeholder: "Password(6 characters minimum)" %>
 
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field", placeholder: "password_confirmation" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field", placeholder: "Password confirmation" %>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: "action" %>
+        <%= f.submit "Enter", class: "action" %>
       </div>
     <% end %>
   </fieldset>
