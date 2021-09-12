@@ -34,7 +34,6 @@ RSpec.describe '機種の編集', type: :system do
 
   before do
     @type1 = FactoryBot.create(:type)
-    @type2 = FactoryBot.create(:type)
   end
 
   context '機種の編集ができるとき' do
@@ -56,7 +55,7 @@ RSpec.describe '機種の編集', type: :system do
       find('label[for=type_kind_ミドル]').click
       expect(page).to have_checked_field with: 'ミドル', visible: false
       fill_in '機種名', with: "#{@type1.type_name}+編集した機種名"
-      # 編集してもTweetモデルのカウントは変わらないことを確認する
+      # 編集してもTypeモデルのカウントは変わらないことを確認する
       expect{find('input[name="commit"]').click}.to change { Type.count }.by(0)
       # 機種ページに遷移したことを確認する
       expect(current_path).to eq types_path
@@ -66,11 +65,10 @@ RSpec.describe '機種の編集', type: :system do
   end
 end
 
-RSpec.describe 'ツイート削除', type: :system do
+RSpec.describe '機種削除', type: :system do
 
   before do
     @type1 = FactoryBot.create(:type)
-    @type2 = FactoryBot.create(:type)
   end
 
   context '機種を削除ができるとき' do
