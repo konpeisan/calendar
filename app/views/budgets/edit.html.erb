@@ -1,0 +1,74 @@
+<div class="new">
+<h1 class="heading-name">結果作成</h1>
+
+<div class="contents">
+<%= form_with(model: @budget, local: true) do |f| %>
+
+  <div class="content">
+    <%= f.label :start_time, "日付" %>
+    <div class="left-content">
+    <%= f.date_select :start_time %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= f.label :store_id, "ホール名" %>
+    <div class="left-content">
+    <%= f.collection_select :store_id, Hall.all, :id, :store, {prompt: "選択してください"} %>
+    <%= link_to 'ホール作成', halls_path %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= f.label :type_name_id, "機種名" %>
+    <div class="left-content">
+    <%= f.collection_select :type_name_id, Type.all, :id, :type_name, {prompt: "選択してください"} %>
+    <%= link_to '機種作成', types_path %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= f.label :price, "投資" %>
+    <div class="left-content">
+    <%= f.text_field :price, id: "price1" %>円
+    </div>
+  </div>
+
+  <div class="content">
+    <%= f.label :recobery, "回収" %>
+    <div class="left-content">
+    <%= f.text_field :recovery, id: "price2" %>円
+    </div>
+  </div>
+
+  <div class="content">
+    <span>本日の収支</span>
+      <div class="price-input">
+      <span style="color:white" id="total" ></span>円
+      </div>
+  </div>
+
+  <div class="content">
+    <%= f.label :game_hour, "遊技時間" %>
+    <%= f.select :game_hour, options_for_select((0..23).to_a, selected: @budget.game_hour) %> :
+    <%= f.select :game_minute, options_for_select((0..59).to_a, selected: @budget.game_minute) %>
+  </div>
+
+  <div class="content">
+    <%= f.label :memo %>
+    <div class="left-content">
+    <%= f.text_area :memo, class: "memo" %>
+    </div>
+  </div>
+
+  <div class="content">
+  <div class="btn-content">
+    <%= f.submit "編集", class:"btn" %>
+    <%= link_to "削除", budget_path(@budget.id), method: :delete, class: "delete-btn" %>
+    <%= link_to '戻る', :back %>
+  </div>
+  </div>
+
+<% end %>
+</div>
+</div>

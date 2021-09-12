@@ -1,0 +1,81 @@
+<% total = 0 %>
+<% price = 0 %>
+<% recovery = 0 %>
+<% win = 0 %>
+<% lose = 0 %>
+<% draw = 0 %>
+<% probability = 0 %>
+<% num = Budget.where(id: current_user.id).count.to_i %>
+
+<% @budgets.each do |budget| %>
+<% total += budget.total.to_i %>
+<% price += budget.price.to_i %>
+<% recovery += budget.recovery.to_i %>
+
+<% if budget.total.to_i > 0 %>
+<% win += 1 %>
+<% elsif budget.total.to_i < 0 %>
+<% lose += 1 %>
+<% elsif budget.total.to_i == 0 %>
+<% draw += 1 %>
+<%end%>
+
+<%end%>
+<% probability = (win/num.to_f*100).floor(2)  %>
+
+<% h = Budget.where(id: current_user.id).sum(:game_hour) %>
+<% m = Budget.where(id: current_user.id).sum(:game_minute) %>
+<% min = m%60 %>
+<% hour = h + m/60 %>
+<% work_money = total/hour rescue 0 %>
+
+
+<div class="main-budget">
+  <div class="budget">
+    <div class="main-data">
+      <p>全収支</p>
+
+      <% if total < 0 %>
+        <p>収支<span style="color:red"><%= "#{total.to_s(:delimited)}円" %></span></p>
+      <%elsif total == 0 %>
+        <p>収支<%= "#{total.to_s(:delimited)}円" %></p>
+      <%else%>
+        <p>収支<span style="color:blue"><%= "+#{total.to_s(:delimited)}円" %></span></p>
+      <%end%>
+    </div>
+    <div class="data">
+      <div class="toshi-data">
+        <div class="win-data">
+          <ul class="list">
+            <li>回数</li>
+            <li>勝率</li>
+            <li>遊技時間</li>
+          </ul>
+        </div>
+        <div class="price-data">
+          <ul class="list">
+            <li><%= "#{num}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
+            <li><%= "#{probability}%" %></li>
+            <li><%= "#{hour}時間#{min}分" %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="toshi-data">
+        <div class="win-data">
+          <ul class="list">
+            <li>投資</li>
+            <li>回収</li>
+            <li>時給</li>
+          </ul>
+        </div>
+        <div class="price-data">
+          <ul class="list">
+            <li><%= "#{price.to_s(:delimited)}円"  %></li>
+            <li><%= "#{recovery.to_s(:delimited)}円" %></li>
+            <li><%= "#{work_money.to_s(:delimited)}円" %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<%= render "layouts/header" %>
+
+<div class="row">
+
+  <div class="col-xs-3">
+    <%= form_with model: @hall, local: true do |f| %>
+
+    <%= render 'layouts/error_messages', model: f.object %>
+
+      <%= f.label :store, 'ホール名' %>
+      <br>
+      <%= f.text_field :store, class:'form-control' %>
+      <br>
+
+      <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
+      <br>
+      <%= link_to '戻る', :back %>
+    <%end%>
+  </div>
+
+  <div class="col-xs-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="head-1">ホール名</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @halls.each do |hall| %>
+          <tr height=37>
+            <td><%= hall.store %></td>
+            <td><%= link_to '編集', edit_hall_path(hall), class: "edit-btn" %></td>
+            <td><%= link_to '削除', hall_path(hall), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "delete-btn" %></td>
+            <td><%= link_to '店舗情報', "https://www.google.com/search?q=#{hall.store}", target: "_blank", class: "site-btn" %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

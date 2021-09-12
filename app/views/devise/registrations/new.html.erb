@@ -1,0 +1,24 @@
+<div class="login">
+  <fieldset>
+
+    <h2>Sign up</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "field", placeholder: "Username" %>
+
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field", placeholder: "Email" %>
+
+        <%= f.password_field :password, autocomplete: "new-password", class: "field", placeholder: "Password(6 characters minimum)" %>
+
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field", placeholder: "Password confirmation" %>
+
+      <div class="actions">
+        <%= f.submit "Enter", class: "action" %>
+      </div>
+    <% end %>
+  </fieldset>
+</div>
+
+<%= render "devise/shared/links" %>

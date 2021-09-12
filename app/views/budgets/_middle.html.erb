@@ -1,0 +1,76 @@
+<% @middle = Type.where(kind: "ミドル").pluck(:id) %>
+<% @total = Budget.where(type_name_id: @middle).sum(:total) %>
+<% @price = Budget.where(type_name_id: @middle).sum(:price) %>
+<% @recovery = Budget.where(type_name_id: @middle).sum(:recovery) %>
+<% @num = Budget.where(type_name_id: @middle).count %>
+<% @hour = Budget.where(type_name_id: @middle).sum(:game_hour) %>
+<% @minute = Budget.where(type_name_id: @middle).sum(:game_minute) %>
+
+
+<% win = 0 %>
+<% lose = 0 %>
+<% draw = 0 %>
+<% probability = 0 %>
+
+<% if @budgets.exists?(type_name_id: @middle) %>
+
+
+<div class="main-budget">
+  <div class="budget">
+    <div class="main-data">
+      <p><%= "ミドルタイプ" %></p>
+
+      <% if @total.to_i < 0 %>
+        <p>収支<span style="color:red"><%= "#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></span></p>
+      <%elsif @total.to_i == 0%>
+        <p>収支<%= "#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></p>
+      <%else%>
+        <p>収支<span style="color:blue"><%= "+#{number_to_currency(@total, strip_insignificant_zeros: true)}" %></span></p>
+      <%end%>
+    </div>
+    <div class="data">
+      <div class="toshi-data">
+        <div class="win-data">
+          <ul class="list">
+            <li>回数</li>
+            <li>勝率</li>
+            <li>遊技時間</li>
+          </ul>
+        </div>
+        <div class="price-data">
+          <ul class="list">
+            <% Budget.where(type_name_id: @middle).pluck(:total).each do |budget| %>
+            <% if budget.to_i > 0 %>
+            <% win += 1 %>
+            <% elsif budget.to_i < 0 %>
+            <% lose += 1 %>
+            <% elsif budget.to_i == 0 %>
+            <% draw += 1 %>
+            <%end%>
+            <%end%>
+            <li><%= "#{@num}回 (#{win}勝#{lose}敗#{draw}分)" %></li>
+            <li><%= "#{probability = (win/@num.to_f*100).floor(2)}%" %></li>
+            <li><%= "#{@h = @hour+@minute/60}時間#{@minute%60}分" %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="toshi-data">
+        <div class="win-data">
+          <ul class="list">
+            <li>投資</li>
+            <li>回収</li>
+            <li>時給</li>
+          </ul>
+        </div>
+        <div class="price-data">
+          <ul class="list">
+            <li><%= "#{number_to_currency(@price, strip_insignificant_zeros: true)}"  %></li>
+            <li><%= "#{number_to_currency(@recovery, strip_insignificant_zeros: true)}" %></li>
+            <li><%= "#{number_to_currency(@total.to_i/@h, strip_insignificant_zeros: true)}" rescue "0円" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>

@@ -1,0 +1,108 @@
+.sum {
+  margin-left: 20px;
+}
+
+.root {
+  margin-left: auto;
+}
+
+.hidden_box {
+  list-style-type: none;
+  margin: 20px auto 500px;
+  padding: 0;
+  display: flex;
+  box-shadow: 0px 4px 10px darkgray;
+}
+
+.hidden_box li {
+  position: relative;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+
+}
+
+.hidden_box li a {
+  display: list-item;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 2.8;
+  background-color: #9fb7d4;
+  transition: 0.5s;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.hidden_box li ul {
+  list-style: none;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden_box li ul li {
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .2s;
+}
+
+.hidden_box li ul li a {
+  text-align: center;
+}
+
+.hidden_box > li:hover > a { background-color: #7c8c0e;}
+.hidden_box > li:hover li:hover > a { background-color: #6e7c0c;}
+
+.hidden_box {
+  display: none;
+  position: fixed;
+}
+
+.table-striped td:hover {
+  background-color: #d9efff;
+}
+
+.table-striped td:hover .hidden_box {
+  display: block;
+}
+
+.hidden_box li:hover > ul > li{
+  overflow: visible;
+  height: 38px;
+  left: 100%;
+  width: 100%;
+  bottom: 15px;
+}
+
+.hidden_box li ul:before {
+    position: absolute;
+    content: "";
+    top: 13px;
+    left: 450%;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: #454e08;
+}
+
+.log_out {
+  border: 1px solid rgb(236, 74, 74);
+  text-decoration: none;
+  padding: 5px 3px;
+  margin-left: 20px;
+  background-color: rgb(236, 74, 74);
+  color: white;
+}
+
+.user_name {
+  font-size: 20px;
+  font-family: "Ravi Prakash", cursive;
+}

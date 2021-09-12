@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  devise_scope :user do
+    root to: "devise/registrations#new"
+  end
+  resources :budgets do
+    collection do
+      get 'analysis'
+    end
+  end
+  resources :halls, except: [:new, :show]
+  resources :types, except: [:new, :show]
+  resources :users, only: [:new, :edit, :update]
 end

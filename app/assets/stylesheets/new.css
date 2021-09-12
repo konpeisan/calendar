@@ -1,0 +1,94 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+
+
+
+
+.heading-name {
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid red;
+  width: 200px;
+  margin: 40px auto;
+}
+
+.contents {
+  width: 50vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  color: rgb(59, 55, 58);
+  font-size: 18px;
+  margin: 0 0 16px 70px;
+}
+
+.left-content {
+  padding-left: 40px;
+}
+
+.price-input {
+  text-align: right;
+}
+.memo {
+  width: 100%;
+}
+
+.btn-content {
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  background-color: skyblue;
+  color: white;
+  padding: 5px 80px ;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+a.btn--circle {
+  border-radius: 10%;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin-left: 20px;
+}

@@ -1,0 +1,26 @@
+<header>
+  <div class="heading">
+    <h1><%= link_to 'パチンコ・スロット収支表', budgets_path, class: 'title' %><h1>
+  </div>
+  <div class='nav'>
+    <ul class='lists-left'>
+    <% if current_page?(analysis_budgets_path) %>
+      <li><%= link_to 'カレンダー', root_path, class: "main" %></li>
+      <li><%= link_to 'ホール名', halls_path, class: "hall-list" %></li>
+      <li><%= link_to '機種名', types_path, class: "type-list" %></li>
+    <% elsif current_page?(budgets_path) %>
+      <li><%= link_to '分析', analysis_budgets_path, class: "main" %></li>
+      <li><%= link_to 'ホール名', halls_path, class: "hall-list" %></li>
+      <li><%= link_to '機種名', types_path, class: "type-list" %></li>
+    <% elsif current_page?(halls_path) %>
+      <li><%= link_to 'カレンダー', root_path, class: "main" %></li>
+      <li><%= link_to '分析', analysis_budgets_path, class: "main" %></li>
+      <li><%= link_to '機種名', types_path, class: "type-list" %></li>
+    <% elsif current_page?(types_path) %>
+      <li><%= link_to 'カレンダー', root_path, class: "main" %></li>
+      <li><%= link_to '分析', analysis_budgets_path, class: "main" %></li>
+      <li><%= link_to 'ホール名', halls_path, class: "hall-list" %></li>
+    <%end%>
+    </ul>
+  </div>
+</header>

@@ -1,36 +1,76 @@
-# README
+### README.md
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
 
-Things you may want to cover:
+## **パチンコ・スロット収支表アプリ**
+---
 
-* Ruby version
+## 概要
+---
 
-* System dependencies
+このアプリはパチンコ・スロットの収支を作成する際、ホール名・機種名を作成し、それを収支に組み込むことで、店舗・機種ごとの収支を分析することができます。
 
-* Configuration
+## 本番環境
+---
 
-* Database creation
 
-* Database initialization
+## 制作背景
+---
+他にもすでに出ている収支表アプリは、ごちゃごちゃしていてわかりにくかったり、機能が足りていなかったりと、ちょうどいい感じの収支表アプリがなかったので、自分で使用するために作りました。
 
-* How to run the test suite
+## デモ
+---
+トップページ(新規登録画面)
+![](https://i.gyazo.com/2d1095f0b044158fb445004018f95386.gif)
 
-* Services (job queues, cache servers, search engines, etc.)
+カレンダーページ(ログイン後ページ)
+![](https://i.gyazo.com/c0523e8c57cfee255c2ef91a3a922449.gif)
 
-* Deployment instructions
+分析一覧ページ
+![](https://i.gyazo.com/df11819d2534ac3c8c5cbf406ec97c97.gif)
 
-* ...
+収支入力ページ
+![](https://i.gyazo.com/5bf47fd32ee7566698d73d2442134b84.gif)
 
-# テーブル設計
+ホール作成ページ
+![](https://i.gyazo.com/003753f8bae7a4658b192a2fab488876.gif)
+
+機種作成ページ
+![](https://i.gyazo.com/25bc9a9ad52562b931830adbefc4e11f.gif)
+
+
+## 工夫したポイント
+---
+- 初見でもわかるようにシンプルに仕上げました
+- 収支を年別・月別・店舗別・機種別・パチンコのタイプ別・スロットのタイプ別に分けて分析できるようにしました
+- 登録した店舗・機種名からそれらの詳細ページに遷移するボタンを作りました
+
+## 開発環境
+---
+- Ruby, Ruby on Rails
+- HTML, CSS, JavaScript
+- MySQL, Sequel Pro
+- GitHub, GitHub Desktop
+- Rspec
+- VSCode
+
+## 課題や今後実装したい機能
+---
+- カレンダーとしての機能を充実させるために、日本の休日や土日の色を変更する
+- スマホアプリにして自分のスマホで使用する
+- カレンダーのマスから結果作成を表示する際、マウスオーバーではなくクリックにする
+- 機種の種類やタイプもユーザー入力タイプにする
+
+# DB設計
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| username           | string | null: false |
-| encrypted_password | string | null: false |
+| Column             | Type    | Option      |
+| ------------------ | ------- | ----------- |
+| name               | string  | null: false |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+
 
 ### Association
 - has_many :budgets
@@ -39,37 +79,44 @@ Things you may want to cover:
 
 ## budgets テーブル
 
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| today    | string  | null: false |
-| price    | string  | null: false |
-| recovery | string  | null: false |
-| yen_id   | integer | null: false |
-| memo     | text    |             |
+| Column       | Type     | Options     |
+| ------------ | -------- | ----------- |
+| start_time   | datetime | null: false |
+| price        | string   | null: false |
+| recovery     | string   | null: false |
+| total        | string   | null: false |
+| memo         | text     |             |
+| store_id     | integer  |             |
+| type_name_id | integer  |             |
+| game_hour    | integer  |             |
+| game_minute  | integer  |             |
+| user_id      | integer  |             |
 
 ### Association
 - belongs_to :user
-- has_many :halls
-- has_many :types
+- belongs_to :hall
+- belongs_to :type
 
 ## halls テーブル
 
-| Column       | Type       | Options    |
-| ------------ | ---------- | ---------- |
-| hall_name_id | integer    |            |
+| Column       | Type       | Options     |
+| ------------ | ---------- | ----------- |
+| store_id     | string     | null: false |
+| user_id      | integer    |             |
 
 ### Association
+- has_many   :budgets
 - belongs_to :user
-- belongs_to :budget
 
 ## types テーブル
 
-| Column       | Type       | Options   |
-| ------------ | ---------- | --------- |
-| type_name_id | integer    |           |
-| pachinko     | integer    |           |
-| slot         | integer    |           |
+| Column       | Type       | Options     |
+| ------------ | ---------- | ----------- |
+| type_name    | string     | null: false |
+| pachi_slot   | string     | null: false |
+| kind         | string     | null: false |
+| user_id      | integer    |             |
 
 ### Association
+- has_many   :budgets
 - belongs_to :user
-- belongs_to :budget

@@ -1,0 +1,64 @@
+<%= render "layouts/header" %>
+
+<body>
+
+<div class="cp_tab">
+	<input type="radio" name="cp_tab" id="tab2_1" aria-controls="first_tab02" checked>
+	<label for="tab2_1">全収支</label>
+	<input type="radio" name="cp_tab" id="tab2_2" aria-controls="second_tab02">
+	<label for="tab2_2">年別</label>
+	<input type="radio" name="cp_tab" id="tab2_3" aria-controls="third_tab02">
+	<label for="tab2_3">月別</label>
+	<input type="radio" name="cp_tab" id="tab2_4" aria-controls="force_tab02">
+	<label for="tab2_4">ホール別</label>
+  <input type="radio" name="cp_tab" id="tab2_5" aria-controls="fifth_tab02">
+	<label for="tab2_5">機種別</label>
+  <input type="radio" name="cp_tab" id="tab2_6" aria-controls="sixth_tab02">
+	<label for="tab2_6">パチンコ</label>
+  <input type="radio" name="cp_tab" id="tab2_7" aria-controls="seventh_tab02">
+	<label for="tab2_7">スロット</label>
+
+	<div class="cp_tabpanels">
+
+		<div class="cp_tabpanel">
+		<%= render "all" %>
+		</div>
+
+		<div class="cp_tabpanel">
+		<%= render "year" %>
+		</div>
+
+		<div class="cp_tabpanel">
+		<%= render "month" %>
+		</div>
+
+		<div class="cp_tabpanel">
+		<%= render "store" %>
+		</div>
+
+    <div class="cp_tabpanel">
+		<%= render "type" %>
+    </div>
+
+    <div class="cp_tabpanel">
+		<%= render "pachinko" %>
+		<%= render "middle" %>
+		<%= render "light_middle" %>
+		<%= render "light" %>
+    </div>
+
+    <div class="cp_tabpanel">
+		<%= render "slot" %>
+		<%= render "at" %>
+		<%= render "art" %>
+		<%= render "rt" %>
+		<%= render "a" %>
+    </div>
+
+	</div>
+</div>
+
+
+</div>
+</body>
+
