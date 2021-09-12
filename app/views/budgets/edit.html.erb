@@ -14,7 +14,7 @@
   <div class="content">
     <%= f.label :store_id, "ホール名" %>
     <div class="left-content">
-    <%= f.collection_select :store_id, Hall.all, :id, :store, {prompt: "選択してください"} %>
+    <%= f.collection_select :store_id, Hall.where(user_id: current_user.id), :id, :store, {prompt: "選択してください"} %>
     <%= link_to 'ホール作成', halls_path %>
     </div>
   </div>
@@ -22,7 +22,7 @@
   <div class="content">
     <%= f.label :type_name_id, "機種名" %>
     <div class="left-content">
-    <%= f.collection_select :type_name_id, Type.all, :id, :type_name, {prompt: "選択してください"} %>
+    <%= f.collection_select :type_name_id, Type.where(user_id: current_user.id), :id, :type_name, {prompt: "選択してください"} %>
     <%= link_to '機種作成', types_path %>
     </div>
   </div>

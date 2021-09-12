@@ -1,8 +1,9 @@
 class BudgetsController < ApplicationController
   before_action :set_budget, only: [:edit,:update,:destroy]
+  before_action :move_to_index, only: [:edit]
 
   def index
-    @budgets = Budget.where(id: current_user.id)
+    @budgets = Budget.where(user_id: current_user.id)
   end
 
   def new
@@ -41,9 +42,9 @@ class BudgetsController < ApplicationController
   end
 
   def analysis
-    @budgets = Budget.where(id: current_user.id)
-    @halls = Hall.where(id: current_user.id)
-    @types = Type.where(id: current_user.id)
+    @budgets = Budget.where(user_id: current_user.id)
+    @halls = Hall.where(user_id: current_user.id)
+    @types = Type.where(user_id: current_user.id)
   end
 
   private
@@ -64,5 +65,12 @@ class BudgetsController < ApplicationController
     @budget.recovery = 0
     @budget.total = 0
     @budget.save
+  end
+
+  def move_to_index
+    @budget = Budget.find(params[:id])
+    unless current_user.id == @budget.user_id
+      redirect_to action: :index
+    end
   end
 end

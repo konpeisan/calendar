@@ -1,9 +1,9 @@
-<% @total = Budget.where(id: current_user.id).group("YEAR(start_time)").sum(:total) %>
-<% @price = Budget.where(id: current_user.id).group("YEAR(start_time)").sum(:price) %>
-<% @recovery = Budget.where(id: current_user.id).group("YEAR(start_time)").sum(:recovery) %>
-<% @num = Budget.where(id: current_user.id).group("YEAR(start_time)").count %>
-<% @hour = Budget.where(id: current_user.id).group("YEAR(start_time)").sum(:game_hour) %>
-<% @minute = Budget.where(id: current_user.id).group("YEAR(start_time)").sum(:game_minute) %>
+<% @total = @budgets.group("YEAR(start_time)").sum(:total) %>
+<% @price = @budgets.group("YEAR(start_time)").sum(:price) %>
+<% @recovery = @budgets.group("YEAR(start_time)").sum(:recovery) %>
+<% @num = @budgets.group("YEAR(start_time)").count %>
+<% @hour = @budgets.group("YEAR(start_time)").sum(:game_hour) %>
+<% @minute = @budgets.group("YEAR(start_time)").sum(:game_minute) %>
 <% @year = @num.keys %>
 
 
@@ -40,7 +40,7 @@
         <div class="price-data">
           <ul class="list">
 
-            <% Budget.where(id: current_user.id).where(start_time: "#{year}-01-01".."#{year}-12-31").pluck(:total).each do |budget| %>
+            <% @budgets.where(start_time: "#{year}-01-01".."#{year}-12-31").pluck(:total).each do |budget| %>
             <% if budget.to_i > 0 %>
             <% win += 1 %>
             <% elsif budget.to_i < 0 %>
