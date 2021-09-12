@@ -1,10 +1,10 @@
 class HallsController < ApplicationController
   before_action :set_hall, only: [:edit, :update, :destroy]
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, only: [:edit]
 
   def index
     @hall = Hall.new
-    @halls = Hall.where(id: current_user.id)
+    @halls = Hall.where(user_id: current_user.id)
   end
 
   def create
@@ -12,7 +12,7 @@ class HallsController < ApplicationController
     if @hall.save
       redirect_to halls_path
     else
-      @halls = Hall.all
+      @halls = Hall.where(user_id: current_user.id)
       render :index
     end
   end
@@ -45,7 +45,7 @@ class HallsController < ApplicationController
 
   def move_to_index
     @hall = Hall.find(params[:id])
-    unless user_signed_in? && current_user == @hall.user
+    unless current_user.id == @hall.user_id
       redirect_to action: :index
     end
   end

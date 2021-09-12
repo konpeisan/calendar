@@ -1,11 +1,10 @@
 class TypesController < ApplicationController
   before_action :set_type, only: [:edit, :update, :destroy]
-  before_action :move_to_index, except: [:index]
-
+  before_action :move_to_index, only: [:edit]
 
   def index
     @type = Type.new
-    @types = Type.where(id: current_user.id)
+    @types = Type.where(user_id: current_user.id)
   end
 
   def create
@@ -13,7 +12,7 @@ class TypesController < ApplicationController
     if @type.save
       redirect_to types_path
     else
-      @types = Type.all
+      @types = Type.where(user_id: current_user.id)
       render :index
     end
   end
@@ -46,7 +45,7 @@ class TypesController < ApplicationController
 
   def move_to_index
     @type = Type.find(params[:id])
-    unless user_signed_in? && current_user == @type.user
+    unless current_user.id == @type.user_id
       redirect_to action: :index
     end
   end
