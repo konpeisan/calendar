@@ -21,7 +21,7 @@
 ## デモ
 ---
 トップページ(新規登録画面)
-![](https://i.gyazo.com/2d1095f0b044158fb445004018f95386.gif)
+![](https://i.gyazo.com/e96fbd33a0c585323bfa2ccd5c4ee64f.gif)
 
 カレンダーページ(ログイン後ページ)
 ![](https://i.gyazo.com/c0523e8c57cfee255c2ef91a3a922449.gif)
