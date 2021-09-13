@@ -106,3 +106,11 @@
   font-size: 20px;
   font-family: "Ravi Prakash", cursive;
 }
+
+.wday-0 {
+  background-color: rgb(250, 214, 215);
+}
+
+.wday-6 {
+  background-color: rgb(142, 217, 252);
+}
