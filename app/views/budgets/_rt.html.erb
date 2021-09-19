@@ -1,4 +1,4 @@
-<% @rt = Type.where(kind: "A+RT").pluck(:id) %>
+<% @rt = Type.where(user_id: current_user.id).where(kind: "A+RT").pluck(:id) %>
 <% @total = Budget.where(type_name_id: @rt).sum(:total) %>
 <% @price = Budget.where(type_name_id: @rt).sum(:price) %>
 <% @recovery = Budget.where(type_name_id: @rt).sum(:recovery) %>

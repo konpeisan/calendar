@@ -11,9 +11,12 @@
 
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field", placeholder: "Email" %>
 
-        <%= f.password_field :password, autocomplete: "new-password", class: "field", placeholder: "Password(6 characters minimum)" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "field", placeholder: "Password(6 characters minimum)", id: "pass" %>
+        <input type="checkbox" onChange="document.getElementById('pass').type = (this.checked) ? 'text' : 'password';">パスワードを表示する
 
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field", placeholder: "Password confirmation" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field", placeholder: "Password confirmation", id: "pass-con" %>
+        <input type="checkbox" onChange="document.getElementById('pass-con').type = (this.checked) ? 'text' : 'password';">パスワードを表示する
+
 
       <div class="actions">
         <%= f.submit "Enter", class: "action" %>

@@ -1,4 +1,4 @@
-<% @light = Type.where(kind: "甘デジ").pluck(:id) %>
+<% @light = Type.where(user_id: current_user.id).where(kind: "甘デジ").pluck(:id) %>
 <% @total = Budget.where(type_name_id: @light).sum(:total) %>
 <% @price = Budget.where(type_name_id: @light).sum(:price) %>
 <% @recovery = Budget.where(type_name_id: @light).sum(:recovery) %>

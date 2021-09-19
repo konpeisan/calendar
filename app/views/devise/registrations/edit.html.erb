@@ -18,13 +18,21 @@
   <% end %>
 
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "field" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "field", id: "pass" %>
+    <input type="checkbox" onChange="document.getElementById('pass').type = (this.checked) ? 'text' : 'password';">
+    パスワードを表示する<br>
+
 
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field", id: "pass-con" %>
+    <input type="checkbox" onChange="document.getElementById('pass-con').type = (this.checked) ? 'text' : 'password';">
+    パスワードを表示する<br>
+
 
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "field" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "field", id: "new-pass" %>
+    <input type="checkbox" onChange="document.getElementById('new-pass').type = (this.checked) ? 'text' : 'password';">パスワードを表示する
+
 
   <div class="actions">
     <%= f.submit "Update", class: "action" %>
