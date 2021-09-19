@@ -17,7 +17,12 @@
 <div class="main-budget">
   <div class="budget">
     <div class="main-data">
-      <p><%= type.type_name %></p>
+    <% if type.pachi_slot == "パチンコ" %>
+      <span style="color:#cc66ff">P<%= type.type_name %></span>
+      <%elsif type.pachi_slot == "スロット" %>
+      <span style="color:#3300cc">S<%= type.type_name %></span>
+    <%end%>
+
 
       <% if @total[type.id].to_i < 0 %>
         <p>収支<span style="color:red"><%= "#{number_to_currency(@total[type.id], strip_insignificant_zeros: true)}" %></span></p>
