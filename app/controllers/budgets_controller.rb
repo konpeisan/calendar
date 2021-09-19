@@ -1,6 +1,7 @@
 class BudgetsController < ApplicationController
   before_action :set_budget, only: [:edit,:update,:destroy]
   before_action :move_to_index, only: [:edit]
+  before_action :date_valid?, only: [:new]
 
   def index
     @budgets = Budget.where(user_id: current_user.id)
@@ -70,6 +71,13 @@ class BudgetsController < ApplicationController
   def move_to_index
     @budget = Budget.find(params[:id])
     unless current_user.id == @budget.user_id
+      redirect_to action: :index
+    end
+  end
+
+  def date_valid?
+    d = params[:format].split(/-/)
+    unless Date.valid_date?(d[0].to_i,d[1].to_i,d[2].to_i)
       redirect_to action: :index
     end
   end
