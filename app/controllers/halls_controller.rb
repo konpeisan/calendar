@@ -5,14 +5,14 @@ class HallsController < ApplicationController
   def index
     @hall = Hall.new
     @halls = Hall.where(user_id: current_user.id)
-    session[:previous_irl] = request.referer
+    session[:previous_url] = request.referer
   end
 
   def create
     @hall = Hall.new(hall_params)
     if @hall.save
-      if session[:previous_irl].include?("/budgets/new") || session[:previous_irl].include?("/edit")
-        redirect_to session[:previous_irl]
+      if session[:previous_url].include?("/budgets/new") || session[:previous_url].include?("/edit")
+        redirect_to session[:previous_url]
       else
         redirect_to halls_path
       end
