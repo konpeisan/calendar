@@ -5,12 +5,17 @@ class TypesController < ApplicationController
   def index
     @type = Type.new
     @types = Type.where(user_id: current_user.id)
+    session[:previous_irl] = request.referer
   end
 
   def create
     @type = Type.new(type_params)
     if @type.save
-      redirect_to types_path
+      if session[:previous_irl].include?("/budgets/new") || session[:previous_irl].include?("/edit")
+        redirect_to session[:previous_irl]
+      else
+        redirect_to types_path
+      end
     else
       @types = Type.where(user_id: current_user.id)
       render :index
